@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eric-tom.github.io</id>
     <title>Welcome to Eric&apos;s blog!</title>
-    <updated>2021-08-17T14:36:25.261Z</updated>
+    <updated>2021-08-17T14:39:35.641Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eric-tom.github.io"/>
     <link rel="self" href="https://eric-tom.github.io/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://eric-tom.github.io/images/avatar.png</logo>
     <icon>https://eric-tom.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Welcome to Eric&apos;s blog!</rights>
+    <entry>
+        <title type="html"><![CDATA[努力加油吧!]]></title>
+        <id>https://eric-tom.github.io/post/nu-li-jia-you-ba/</id>
+        <link href="https://eric-tom.github.io/post/nu-li-jia-you-ba/">
+        </link>
+        <updated>2021-08-17T14:39:09.000Z</updated>
+        <content type="html"><![CDATA[<p>学习学习ing~!</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Gridea写博客]]></title>
         <id>https://eric-tom.github.io/post/gridea-xie-bo-ke/</id>
