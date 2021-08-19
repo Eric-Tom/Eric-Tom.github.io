@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eric-tom.github.io</id>
     <title>Welcome to Eric&apos;s blog!</title>
-    <updated>2021-08-19T07:09:12.751Z</updated>
+    <updated>2021-08-19T07:17:44.048Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eric-tom.github.io"/>
     <link rel="self" href="https://eric-tom.github.io/atom.xml"/>
@@ -17,7 +17,7 @@
         </link>
         <updated>2021-08-17T14:39:09.000Z</updated>
         <content type="html"><![CDATA[<p>学习学习ing~!<br>
-种一颗数最好的是十年前，其次就是现在。</p>
+种一棵树最好的时间是十年前，其次是现在。</p>
 ]]></content>
     </entry>
     <entry>
