@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eric-tom.github.io</id>
     <title>Welcome to Eric&apos;s blog!</title>
-    <updated>2021-08-31T07:13:46.165Z</updated>
+    <updated>2021-08-31T07:47:11.248Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eric-tom.github.io"/>
     <link rel="self" href="https://eric-tom.github.io/atom.xml"/>
@@ -10,6 +10,36 @@
     <logo>https://eric-tom.github.io/images/avatar.png</logo>
     <icon>https://eric-tom.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Welcome to Eric&apos;s blog!</rights>
+    <entry>
+        <title type="html"><![CDATA[一些笔记]]></title>
+        <id>https://eric-tom.github.io/post/yi-xie-bi-ji/</id>
+        <link href="https://eric-tom.github.io/post/yi-xie-bi-ji/">
+        </link>
+        <updated>2021-08-31T06:19:53.000Z</updated>
+        <content type="html"><![CDATA[<p>1.@RequestMapping   和  @GetMapping @PostMapping 区别<br>
+@GetMapping是一个组合注解，是@RequestMapping(method = RequestMethod.GET)的缩写。<br>
+@PostMapping是一个组合注解，是@RequestMapping(method = RequestMethod.POST)的缩写。<br>
+@RequestMapping:<br>
+一般情况下都是用@RequestMapping（method=RequestMethod.），因为@RequestMapping可以直接替代以上两个注解，但是以上两个注解并不能替代@RequestMapping，@RequestMapping相当于以上两个注解的父类！<br>
+类似的组合注解还有：<br>
+@PutMapping、@DeleteMapping、@PatchMapping<br>
+总结下来就是@PostMapping和@GetMapping都可以用@RequestMapping代替，如果读者怕在映射的时候出错，可以统一写@RequestMapping，当然这样写的话也有弊端，笼统的全用@RequestMapping, 不便于其他人对代码的阅读和理解！还是建议区分开来写！养成良好的代码习惯！</p>
+<p>2.@Accessors(chain = true)<br>
+在entitiy的类中加上，链式编程，链式访问，该注解设置chain=true，生成setter方法返回this（也就是返回的是对象），代替了默认的返回void。<br>
+好处如对一个对象连续设置属性，<br>
+Apple apple = new Apple();<br>
+apple.setColor(&quot;red&quot;).setFlag(true).setHeight(22.56);//链式</p>
+<p>3.@Data注解 与 lombok<br>
+常用的几个注解：<br>
+@Data ： 注在类上，提供类的get、set、equals、hashCode、canEqual、toString方法<br>
+@AllArgsConstructor ： 注在类上，提供类的全参构造<br>
+@NoArgsConstructor ： 注在类上，提供类的无参构造<br>
+@Setter ： 注在属性上，提供 set 方法<br>
+@Getter ： 注在属性上，提供 get 方法<br>
+@EqualsAndHashCode ： 注在类上，提供对应的 equals 和 hashCode 方法<br>
+@Log4j/@Slf4j ： 注在类上，提供对应的 Logger 对象，变量名为 log</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[努力加油吧!]]></title>
         <id>https://eric-tom.github.io/post/nu-li-jia-you-ba/</id>
