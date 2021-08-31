@@ -6,7 +6,7 @@
 
 <title>一些笔记 | Welcome to Eric&#39;s blog!</title>
 
-<link rel="shortcut icon" href="https://eric-tom.github.io/favicon.ico?v=1630396028343">
+<link rel="shortcut icon" href="https://eric-tom.github.io/favicon.ico?v=1630416843897">
 
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://eric-tom.github.io/styles/main.css">
@@ -179,7 +179,7 @@
             
         </div>
         <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1630396028343"
+            <form id="gridea-search-form" style="position: relative" data-update="1630416843897"
                 action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
                 <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
@@ -233,6 +233,12 @@ apple.setColor(&quot;red&quot;).setFlag(true).setHeight(22.56);//链式</p>
 @Getter ： 注在属性上，提供 get 方法<br>
 @EqualsAndHashCode ： 注在类上，提供对应的 equals 和 hashCode 方法<br>
 @Log4j/@Slf4j ： 注在类上，提供对应的 Logger 对象，变量名为 log</p>
+<p>4.entity中的类有Date属性时，插入入的时间是String类型，需要转换为Date<br>
+@DateTimeFormat(pattern=&quot;yyyy-MM-dd HH:mm:ss&quot;)<br>
+入参格式化，页面写入数据库时格式化, @DateTimeFormat 注解的 pattern 属性值指定的日期时间格式并不是将要转换成的日期格式，这个指定的格式是和传入的参数对应的。<br>
+@JsonFormat<br>
+@JsonFormat(pattern=&quot;yyyy-MM-dd HH:mm:ss&quot;,locale=&quot;zh&quot;,timezone=&quot;GMT+8&quot;)<br>
+出参格式化，</p>
 
                 </div>
             </article>

@@ -1,10 +1,10 @@
-<html lang="zh">
+<html>
 <head>
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>关于 - Welcome to Eric&#39;s blog!</title>
+<title>数据库相关知识 | Welcome to Eric&#39;s blog!</title>
 
 <link rel="shortcut icon" href="https://eric-tom.github.io/favicon.ico?v=1630416843897">
 
@@ -33,7 +33,7 @@
 <!--<script src="media/scripts/index.js"></script>-->
 
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
 <body>
 <div class="main gt-bg-theme-color-first">
@@ -199,18 +199,49 @@
     }
 </script>
     <div class="post-container">
-        <div class="post-detail">
+        <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
-                <div class="post-content">
+                <h2 class="post-title">
+                    数据库相关知识
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2021-08-31 21-08 ·
+                    </time>
                     
+                </div>
+                <div class="post-content">
+                    <p>一、left join,right join,inner join,full join之间的区别<br>
+1.inner join（内连接），在两张表进行连接查询时，只保留两张表中完全匹配的结果集。<br>
+注意：单纯的select * from a,b是笛卡尔乘积。比如a表有5条数据，b表有3条数据，那么最后的结果有5*3=15条数据。<br>
+但是如果对两个表进行关联:select * from a,b where a.id = b.id 意思就变了，此时就等价于：<br>
+select * from a inner join b on a.id = b.id。即就是内连接。<br>
+但是这种写法并不符合规范，可能只对某些数据库管用，如sqlserver。推荐最好不要这样写。最好写成inner join的写法。<br>
+2.left join,在两张表进行连接查询时，会返回左表所有的行，即使在右表中没有匹配的记录。<br>
+3.right join,在两张表进行连接查询时，会返回右表所有的行，即使在左表中没有匹配的记录。<br>
+4.full join,在两张表进行连接查询时，返回左表和右表中所有没有匹配的行。<br>
+查询结果是left join和right join的并集。</p>
+<p>二、多对多关系建表其实不用外键约束<br>
+看B站视频，网页说什么阿里官方禁止，说了一大堆缺点，效率低，限制多，可以有外键，只是代码里他们说在service层控制约束，多对多关系也可以写成一对多关系，在一方实体里写对方的集合，数据库里建中间表，但实体里可以不写，只是在查询代码里用连接查询就行。</p>
+
                 </div>
             </article>
         </div>
-        <br>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://eric-tom.github.io/post/yi-xie-bi-ji/" class="post-title gt-a-link">
+                    一些笔记
+                </a>
+            </div>
         
 
         
 
+        
+
+        
 
         <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first">醉翁之意不在酒</div>

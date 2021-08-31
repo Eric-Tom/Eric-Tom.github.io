@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eric-tom.github.io</id>
     <title>Welcome to Eric&apos;s blog!</title>
-    <updated>2021-08-31T07:47:38.134Z</updated>
+    <updated>2021-08-31T13:34:08.560Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eric-tom.github.io"/>
     <link rel="self" href="https://eric-tom.github.io/atom.xml"/>
@@ -10,6 +10,26 @@
     <logo>https://eric-tom.github.io/images/avatar.png</logo>
     <icon>https://eric-tom.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Welcome to Eric&apos;s blog!</rights>
+    <entry>
+        <title type="html"><![CDATA[数据库相关知识]]></title>
+        <id>https://eric-tom.github.io/post/shu-ju-ku-xiang-guan-zhi-shi/</id>
+        <link href="https://eric-tom.github.io/post/shu-ju-ku-xiang-guan-zhi-shi/">
+        </link>
+        <updated>2021-08-31T13:26:11.000Z</updated>
+        <content type="html"><![CDATA[<p>一、left join,right join,inner join,full join之间的区别<br>
+1.inner join（内连接），在两张表进行连接查询时，只保留两张表中完全匹配的结果集。<br>
+注意：单纯的select * from a,b是笛卡尔乘积。比如a表有5条数据，b表有3条数据，那么最后的结果有5*3=15条数据。<br>
+但是如果对两个表进行关联:select * from a,b where a.id = b.id 意思就变了，此时就等价于：<br>
+select * from a inner join b on a.id = b.id。即就是内连接。<br>
+但是这种写法并不符合规范，可能只对某些数据库管用，如sqlserver。推荐最好不要这样写。最好写成inner join的写法。<br>
+2.left join,在两张表进行连接查询时，会返回左表所有的行，即使在右表中没有匹配的记录。<br>
+3.right join,在两张表进行连接查询时，会返回右表所有的行，即使在左表中没有匹配的记录。<br>
+4.full join,在两张表进行连接查询时，返回左表和右表中所有没有匹配的行。<br>
+查询结果是left join和right join的并集。</p>
+<p>二、多对多关系建表其实不用外键约束<br>
+看B站视频，网页说什么阿里官方禁止，说了一大堆缺点，效率低，限制多，可以有外键，只是代码里他们说在service层控制约束，多对多关系也可以写成一对多关系，在一方实体里写对方的集合，数据库里建中间表，但实体里可以不写，只是在查询代码里用连接查询就行。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[一些笔记]]></title>
         <id>https://eric-tom.github.io/post/yi-xie-bi-ji/</id>
@@ -38,6 +58,12 @@ apple.setColor(&quot;red&quot;).setFlag(true).setHeight(22.56);//链式</p>
 @Getter ： 注在属性上，提供 get 方法<br>
 @EqualsAndHashCode ： 注在类上，提供对应的 equals 和 hashCode 方法<br>
 @Log4j/@Slf4j ： 注在类上，提供对应的 Logger 对象，变量名为 log</p>
+<p>4.entity中的类有Date属性时，插入入的时间是String类型，需要转换为Date<br>
+@DateTimeFormat(pattern=&quot;yyyy-MM-dd HH:mm:ss&quot;)<br>
+入参格式化，页面写入数据库时格式化, @DateTimeFormat 注解的 pattern 属性值指定的日期时间格式并不是将要转换成的日期格式，这个指定的格式是和传入的参数对应的。<br>
+@JsonFormat<br>
+@JsonFormat(pattern=&quot;yyyy-MM-dd HH:mm:ss&quot;,locale=&quot;zh&quot;,timezone=&quot;GMT+8&quot;)<br>
+出参格式化，</p>
 ]]></content>
     </entry>
     <entry>
