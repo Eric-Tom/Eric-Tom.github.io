@@ -6,7 +6,7 @@
 
 <title>数据库相关知识 | Welcome to Eric&#39;s blog!</title>
 
-<link rel="shortcut icon" href="https://eric-tom.github.io/favicon.ico?v=1630416843897">
+<link rel="shortcut icon" href="https://eric-tom.github.io/favicon.ico?v=1630652793809">
 
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://eric-tom.github.io/styles/main.css">
@@ -179,7 +179,7 @@
             
         </div>
         <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1630416843897"
+            <form id="gridea-search-form" style="position: relative" data-update="1630652793809"
                 action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
                 <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
@@ -211,8 +211,8 @@
                     
                 </div>
                 <div class="post-content">
-                    <p>一、left join,right join,inner join,full join之间的区别<br>
-1.inner join（内连接），在两张表进行连接查询时，只保留两张表中完全匹配的结果集。<br>
+                    <h1 id="一-left-joinright-joininner-joinfull-join之间的区别">一、left join,right join,inner join,full join之间的区别</h1>
+<p>1.inner join（内连接），在两张表进行连接查询时，只保留两张表中完全匹配的结果集。<br>
 注意：单纯的select * from a,b是笛卡尔乘积。比如a表有5条数据，b表有3条数据，那么最后的结果有5*3=15条数据。<br>
 但是如果对两个表进行关联:select * from a,b where a.id = b.id 意思就变了，此时就等价于：<br>
 select * from a inner join b on a.id = b.id。即就是内连接。<br>
@@ -221,8 +221,9 @@ select * from a inner join b on a.id = b.id。即就是内连接。<br>
 3.right join,在两张表进行连接查询时，会返回右表所有的行，即使在左表中没有匹配的记录。<br>
 4.full join,在两张表进行连接查询时，返回左表和右表中所有没有匹配的行。<br>
 查询结果是left join和right join的并集。</p>
-<p>二、多对多关系建表其实不用外键约束<br>
-看B站视频，网页说什么阿里官方禁止，说了一大堆缺点，效率低，限制多，可以有外键，只是代码里他们说在service层控制约束，多对多关系也可以写成一对多关系，在一方实体里写对方的集合，数据库里建中间表，但实体里可以不写，只是在查询代码里用连接查询就行。</p>
+<hr>
+<h1 id="二-多对多关系建表其实不用外键约束">二、多对多关系建表其实不用外键约束</h1>
+<p>看B站视频，网页说什么阿里官方禁止，说了一大堆缺点，效率低，限制多，可以有外键，只是代码里他们说在service层控制约束，多对多关系也可以写成一对多关系，在一方实体里写对方的集合，数据库里建中间表，但实体里可以不写，只是在查询代码里用连接查询就行。</p>
 
                 </div>
             </article>
