@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://eric-tom.github.io/favicon.ico?v=1630659667504">
+<link rel="shortcut icon" href="https://eric-tom.github.io/favicon.ico?v=1630674765935">
 <link rel="stylesheet" href="https://eric-tom.github.io/styles/main.css">
 
 
@@ -34,7 +34,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://eric-tom.github.io">
-        <img src="https://eric-tom.github.io/images/avatar.png?v=1630659667504" class="site-logo">
+        <img src="https://eric-tom.github.io/images/avatar.png?v=1630674765935" class="site-logo">
         <h1 class="site-title">Welcome to Eric&#39;s blog!</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -138,7 +138,7 @@ printf(&quot;%d&quot;,sum);           /<em>执行一次</em>/<br>
 <h2 id="四-常见的时问复杂度如表所示">四、常见的时问复杂度如表所示。</h2>
 <p><img src="https://s3.bmp.ovh/imgs/2021/09/1a27c7f4b188e499.png" alt="时间复杂度表" title="时间复杂度表" loading="lazy"><br>
 常用的时间复杂度所耗费的时间从小到大依次是：<br>
-O(1)&lt; O(logn)&lt;O(n)&lt;O(nlogn)&lt;O(n<sup>2</sup>)&lt;O(n<sup>3</sup>)&lt;O(2<sup>n</sup>)&lt;O(n!)&lt;O(n<sup>n</sup>)</p>
+O(1) &lt; O(logn) &lt; O(n) &lt; O(nlogn) &lt; O(n<sup>2</sup>) &lt; O(n<sup>3</sup>) &lt; O(2<sup>n</sup>) &lt; O(n!) &lt; O(n<sup>n</sup>)</p>
 <h2 id="五-最坏情况与平均情况">五、最坏情况与平均情况</h2>
 <ul>
 <li>我们查找一个有n 个随机数字数组中的某个数字，最好的情况是第一个数字就是，那么算法的时间复杂度为O(1)，但也有可能这个数字就在最后一个位置上待着，那么算法的时间复杂度就是O(n)，这是最坏的一种情况了。</li>
@@ -175,41 +175,797 @@ Memory Limit:65536/65536KB(Java/Others)</li>
 using namespace std;
 int main( )
 {
-int i,k,n = 1e8;
-clock_t start,end;
-start = clock( );
-for(i = 0; i&lt;n; i++)k++; //循环次数
-end = clock( ) ;
-cout &lt;&lt;( double)( end - start) / CLOCKS_PER_SEC&lt;&lt;endl;
+    int i,k,n = 1e8;
+    clock_t start,end;
+    start = clock( );
+    for(i = 0; i&lt;n; i++)k++; //循环次数
+    end = clock( ) ;
+    cout &lt;&lt;( double)( end - start) / CLOCKS_PER_SEC&lt;&lt;endl;
 }
 </code></pre>
 <ul>
 <li>上面的程序在一台普通配置的计算机运行，例如CPU为i5-8250U、内存为8GB、64位的操作系统，结果如下：<br>
-当n=1e8=10时,输出的运行时间是0.164s。<br>
+当n=1e8=(10<sup>8</sup>)时,输出的运行时间是0.164s。<br>
 当n=le9时,输出的运行时间是1.645s。<br>
-评测用的OJ服务器,性能可能比这个好一些,也可能差不多。<br>
-所以,如果题目要求“Time Limit : 2000/1000ms(Java/Others)”,那么内部的循环次数应该满足n≤108,即1亿次以内。<br>
+评测用的OJ服务器,性能可能比这个好一些,也可能差不多。</li>
+<li>所以,如果题目要求“Time Limit : 2000/1000ms(Java/Others)”,那么内部的循环次数应该满足n≤(10<sup>8</sup>),即1亿次以内。<br>
 由于程序的运行时间依赖于计算机的性能,不同的计算机结果不同,所以直接把运行时间作为判断标准并不准确。通常,用程序执行的“次数”来衡量更加合理,例如上述程序循环了n次,把它的运行效率记为O(n)。</li>
 </ul>
 <h2 id="九-避免算法竞赛超时小技巧">九、避免算法竞赛超时小技巧</h2>
 <ol>
-<li>判断奇偶数的时候，使用’&amp;'更高效</li>
+<li>输入输出不用printf()和scanf()的话，加入y下面提高输入输出速度。</li>
+</ol>
+<pre><code>ios::sync_with_stdio(false);
+cin.tie(0);cout.tie(0);
+</code></pre>
+<ol start="2">
+<li>判断奇偶数的时候，使用’&amp;'更高效<br>
+在判断一个数的奇数还是偶数的时候，很多小伙伴会使用%来求一个数除以2的余数来进行判断，其实这里我们有更高效的方法，那就是&amp;与运算，如果a&amp;1 == 1则a为奇数，a&amp;1 == 0则a为偶数。</li>
+<li>能转换为迭代的函数，尽量不要写递归</li>
+<li>算法最高不要超过O(n^2)<br>
+在我们正常的算法竞赛中，当你写出来一个时间复杂度比O(n2)的算法时，那你这题基本是凉透了，或者说你只想拿前两个样例(如果是按测试点的比赛，如果实在想不出来，最后可以写个完全暴力，能骗几分是几分)。一般来说，时间效率到O(n 2)一般都很高了，已经很难过全部样例了，如果是压轴题的话，O(n)算法都比较难过全部样例，得需要优化到O(lgn)才保险。</li>
+<li>学会以空间换时间<br>
+在算法竞赛中，我们一般会经常超出时间限制，但是超出空间限制的还是很少的，一般比赛给的都是16MB甚至256MB，根本用不完啊，而且多开几个数组也完全的占不了几个字节，但是这能让我们的程序节省上百倍的时间。这里就拿昨天写的一题来举例吧：LeetCode 每日一题 42. 接雨水,原文有具体的题目和代码，这里为了方便，我们把两段代码分别拿过来。</li>
+<li>leetcode后期的题目，都会告诉你各个变量的取值范围，这个是非常重要的信息点，如果你题目做多了，就会发现，取值范围其实就暗示着作者想让你用什么样的算法。<br>
+N～16:    可以用指数O(2^N)的算法<br>
+N～100:    指数算法会爆炸，必须要用多项式算法。<br>
+N～500:   时间复杂度不能高于O(N^3)<br>
+N～2000:  时间复杂度不能高于O(N^2)<br>
+N～10^5:  时间复杂度不能高于O(N log N)<br>
+N～10^9:  时间复杂度必须为O(log N)或者 O(sqrt(N))<br>
+有那么一个公式，就是你的总计算次数不能超过10^7数量级，否则就会超时。这个在任何的编程竞赛中都适用。</li>
+<li>问题规模和可用算法<br>
+<img src="https://s3.bmp.ovh/imgs/2021/09/daf075bae4e25278.png" alt="" loading="lazy"></li>
+<li>多项式函数与指数函数的增长对比<br>
+<img src="https://s3.bmp.ovh/imgs/2021/09/940e5ea82087dfe4.png" alt="" loading="lazy"></li>
+</ol>
+<h1 id="第二节-c标准模板库standard-template-library">第二节 C++标准模板库（Standard Template Library）</h1>
+<ul>
+<li>常用的数据结构、算法，能极大地简化编程。</li>
+</ul>
+<h2 id="一-概述">一、概述</h2>
+<ul>
+<li>在 ACM 竞赛中，需要用到数组、字符串、队列、堆栈、链表、平衡二叉检索树等数<br>
+据结构和排序、搜索等算法，以提高程序的时间、空间运行效率。这些数据结构，如果都<br>
+需要手工来编写，那是相当麻烦的事情。</li>
+<li>幸运的是，ANSI C++中包含了一个 C++ STL（Standard Template Library），即 C++<br>
+标准模板库，又称 C++泛型库，它在 std 命名空间中定义了常用的数据结构和算法，使用<br>
+起来十分方便。</li>
+</ul>
+<h2 id="二-cstl组件">二、C++STL组件</h2>
+<ul>
+<li>STL 提供三种类型的组件：容器、迭代器和算法，它们都支持泛型程序设计标准。
+<ul>
+<li>容器主要有两类：顺序容器和关联容器。顺序容器（vector、list、deque 和 string<br>
+等）是一系列元素的有序集合。关联容器（set、multiset、map和multimap）包含查找元素的键值。<br>
+迭代器的作用是遍历容器。</li>
+<li>STL 算法库包含四类算法：排序算法、不可变序算法、变序性算法和数值算法。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1vector">1.vector</h3>
+<ol>
+<li>概述</li>
 </ol>
 <ul>
-<li>在判断一个数的奇数还是偶数的时候，很多小伙伴会使用%来求一个数除以2的余数来进行判断，其实这里我们有更高效的方法，那就是&amp;与运算，如果a&amp;1 == 1则a为奇数，a&amp;1 == 0则a为偶数。</li>
+<li>数组：算法竞赛中，为避免出错，一般用静态数组，而不用指针管理动态数组。能开多大就开多大：<br>
+<code>int a[1000000], dp[1000000];</code></li>
+<li>如果空间紧张，用STL的vector建立动态数组，不仅节约空间，也不易出错。</li>
+<li>Vector：动态数组，运行时根据需要改变数组大小。</li>
+<li>以数组形式存储，内存空间是连续的，索引可以在常数时间内完成。</li>
+<li>但是在中间进行插入和删除操作，会造成内存块的拷贝。</li>
 </ul>
 <ol start="2">
-<li>能转换为迭代的函数，尽量不要写递归</li>
-<li>算法最高不要超过O(n^2)</li>
+<li>定义</li>
 </ol>
 <ul>
-<li>在我们正常的算法竞赛中，当你写出来一个时间复杂度比O(n2)的算法时，那你这题基本是凉透了，或者说你只想拿前两个样例(如果是按测试点的比赛，如果实在想不出来，最后可以写个完全暴力，能骗几分是几分)。一般来说，时间效率到O(n 2)一般都很高了，已经很难过全部样例了，如果是压轴题的话，O(n)算法都比较难过全部样例，得需要优化到O(lgn)才保险。</li>
+<li>vector容器能存放任何类型的对象<br>
+<img src="https://s3.bmp.ovh/imgs/2021/09/0d1d6de679db6604.png" alt="" loading="lazy"></li>
+<li>多维数组</li>
+<li>定义多维数组，例如定义一个二维数组：<br>
+<code>vector&lt;int&gt; a[MAXN];</code></li>
+<li>它的第一维大小是固定的MAXN，第二维是动态的。</li>
+<li>用这个方式，可以实现图的邻接表存储。</li>
+</ul>
+<ol start="3">
+<li>常用操作<br>
+<img src="https://s3.bmp.ovh/imgs/2021/09/eb69f55171b283d4.png" alt="" loading="lazy"></li>
+<li>例：hdu 4841圆桌问题</li>
+</ol>
+<ul>
+<li>圆桌上围坐着2n个人。其中n个人是好人，另外n个人是坏人。从第一个人开始数数，数到第m个人，立即赶走该人；然后从被赶走的人之后开始数数，再将数到的第m个人赶走……依此方法不断赶走围坐在圆桌上的人。</li>
+<li>预先应如何安排这些好人与坏人的座位，能使得在赶走n个人之后，圆桌上围坐的剩余的n个人全是好人？</li>
+<li>约瑟夫问题。用vector模拟动态变化的圆桌。</li>
+</ul>
+<pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int main(){
+    vector &lt;int&gt; table;                          //模拟圆桌
+    int n, m;
+    while(cin &gt;&gt; n &gt;&gt; m){
+        table.clear();
+        for(int i=0; i&lt;2*n; i++)  table.push_back(i);  //初始化
+        int pos = 0;                               //记录当前位置
+        for(int i=0; i&lt;n; i++){                  //赶走n个
+            pos = (pos+m-1) % table.size();    //圆桌是个环，取余处理
+            table.erase(table.begin() + pos); //赶走坏人，table人数减1
+        }
+        int j = 0;  
+        for(int i=0; i&lt;2*n; i++){               //打印预先安排座位
+            if(!(i%50) &amp;&amp; i)  cout&lt;&lt;endl;       //50个字母一行
+            if(j&lt;table.size() &amp;&amp; i==table[j]){ //table留下的都是好人
+                j++; 
+                cout&lt;&lt;&quot;G&quot;;
+            }
+            else   
+               cout&lt;&lt;&quot;B&quot;;
+        }
+        cout&lt;&lt;endl&lt;&lt;endl;                          //留一个空行
+    }
+    return 0;
+}
+</code></pre>
+<h3 id="1set集合容器">1.set集合容器</h3>
+<pre><code>#include &lt;set&gt;
+set&lt;int&gt; s;
+s.insert(8);//第一次插入 8，可以插入
+s.insert(1);
+s.insert(12);
+s.insert(6);
+s.insert(8);//第二次插入 8，重复元素，不会插入
+//删除键值为 6 的那个元素
+s.erase(6);
+it=s.find(6);
+if(it!=s.end())//找到
+cout&lt;&lt;*it&lt;&lt;endl;
+else//没找到
+cout&lt;&lt;&quot;not find it&quot;&lt;&lt;endl;
+//中序遍历集合中的元素
+set&lt;int&gt;::iterator it;//定义前向迭代器
+//中序遍历集合中的所有元素
+for(it=s.begin();it!=s.end();it++)
+{
+    cout&lt;&lt;*it&lt;&lt;&quot; &quot;;
+}
+</code></pre>
+<h3 id="2multiset">2.multiset</h3>
+<p>multiset 允许重复的元素键值插入</p>
+<pre><code>#include &lt;set&gt;
+//定义元素类型为 string 的多重集合对象 s，当前没有任何元素
+multiset&lt;string&gt; ms;
+ms.insert(&quot;abc&quot;);
+ms.insert(&quot;123&quot;);
+ms.insert(&quot;111&quot;);
+ms.insert(&quot;aaa&quot;);
+ms.insert(&quot;123&quot;);
+//删除值为“123”的所有重复元素，返回删除元素总数 2
+int n=ms.erase(&quot;123&quot;);
+</code></pre>
+<h3 id="3map-映照容器">3.map 映照容器</h3>
+<pre><code>#include &lt;map&gt;
+在没有指定比较函数时，元素的
+插入位置是按键值由小到大插入到黑白树中去的，这点和 set 一样。
+map&lt;string,float&gt; m;
+//插入元素，按键值的由小到大放入黑白树中
+m[&quot;Jack&quot;]=98.5;
+m[&quot;Bomi&quot;]=96.0;
+m[&quot;Kate&quot;]=97.5;
+//前向遍历元素
+map&lt;string,float&gt;::iterator it;
+for(it=m.begin();it!=m.end();it++)
+{
+    //输出键值与映照数据
+    cout&lt;&lt;(*it).first&lt;&lt;&quot; : &quot;&lt;&lt;(*it).second&lt;&lt;endl;
+}
+运行结果：
+Bomi : 96
+Jack : 98.5
+Kate : 97.5
+
+//反向遍历元素
+map&lt;int,char&gt;::reverse_iterator rit;
+for(rit=m.rbegin();rit!=m.rend();rit++)
+{
+    //输出键值与映照数据
+    cout&lt;&lt;(*rit).first&lt;&lt;&quot; : &quot;&lt;&lt;(*rit).second&lt;&lt;endl;
+}
+return 0;
+//删除键值为 28 的元素
+m.erase(28);
+it=m.find(28);
+if(it!=m.end())//搜索到该键值
+{
+    cout&lt;&lt;(*it).first&lt;&lt;&quot; : &quot;&lt;&lt;(*it).second&lt;&lt;endl;
+}
+else
+{
+    cout&lt;&lt;&quot;not found it&quot;&lt;&lt;endl;
+}
+
+用 map 实现数字分离
+对数字的各位进行分离，采用取余等数学方法操作是很耗时的。而把数字当成字符串，
+使用 map 的映照功能，很方便地实现了数字分离。下面这个程序将一个字符串中的字符当
+成数字，并将各位的数值相加，最后输出各位的和。
+#pragma warning(disable:4786)
+#include &lt;string&gt;
+#include &lt;map&gt;
+#include &lt;iostream&gt;
+using namespace std;
+int main(int argc, char* argv[])
+{
+    //定义 map 对象，当前没有任何元素
+    map&lt;char,int&gt; m;
+    //赋值:字符映射数字
+    m['0']=0;
+    m['1']=1;
+    m['2']=2;
+    m['3']=3;
+    m['4']=4;
+    m['5']=5;
+    m['6']=6;
+    m['7']=7;
+    m['8']=8;
+    m['9']=9;
+    /*上面的 10 条赋值语句可采用下面这个循环来简化代码编写
+    for(int j=0;j&lt;10;j++)
+    {
+    m['0'+j]=j;
+    }
+    */
+    string sa,sb;
+    sa=&quot;6234&quot;;
+    int i;
+    int sum=0;
+    for(i=0;i&lt;sa.length();i++)
+    {
+        sum+=m[sa[i]];
+    }
+    cout&lt;&lt;&quot;sum = &quot;&lt;&lt;sum&lt;&lt;endl;
+    return 0;
+}
+运行结果：
+sum = 15
+
+2.6.7 数字映照字符的 map 写法
+在很多情况下，需要实现将数字映射为相应的字符，看看下面这个程序：
+#pragma warning(disable:4786)
+#include &lt;map&gt;
+#include &lt;string&gt;
+#include &lt;iostream&gt;
+using namespace std;
+int main(int argc, char* argv[])
+{
+    //定义 map 对象，当前没有任何元素
+    map&lt;int,char&gt; m;
+    //赋值:字符映射数字
+    m[0]='0';
+    m[1]='1';
+    m[2]='2';
+    m[3]='3';
+    m[4]='4';
+    m[5]='5';
+    m[6]='6';
+    m[7]='7';
+    m[8]='8';
+    m[9]='9';
+    /*上面的 10 条赋值语句可采用下面这个循环来简化代码编写
+    for(int j=0;j&lt;10;j++)
+    {
+    m[j]='0'+j;
+    }
+    */
+    int n=7;
+    string s=&quot;The number is &quot;;
+    cout&lt;&lt;s + m[n]&lt;&lt;endl;
+    return 0;
+}
+运行结果：
+The number is 7
+</code></pre>
+<h3 id="4multimap-多重映照容器">4.multimap 多重映照容器</h3>
+<h1 id="第十节-其他知识">第十节 其他知识</h1>
+<h2 id="一string-char-int-相互转换">一.string char int 相互转换</h2>
+<pre><code>1.string--&gt;const char*--&gt;int
+ 例子：
+string tmp=&quot;110&quot;;
+int c=atoi(tmp.c_str())+1;
+cout&lt;&lt;tmp&lt;&lt;endl;//110
+cout&lt;&lt;c&lt;&lt;endl;//111
+2.char&lt;--&gt;int(10以内)
+//int类型转换为char类型
+int num = 6;
+char c = num + '0';
+cout&lt;&lt;c&lt;&lt;endl;	
+//char类型转换为int类型
+char c1 = '4';
+int num1 = c1 - '0';
+cout&lt;&lt;num1&lt;&lt;endl;
+
+3.string--&gt;char*
+#include&lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;algorithm&gt;
+#include &lt;string&gt;
+using namespace std;
+int main(void)
+{
+    //data()方法 
+    string str = &quot;hello&quot;;
+    //使用char * p=(char*)str.data()效果相同
+    const char* p1 = str.data();
+    cout&lt;&lt;p1&lt;&lt;endl;
+    //c_str()方法
+    str = &quot;world&quot; ;
+    //使用char * p=(char*)str.c_str()效果相同
+    const char *p2 = str.c_str();
+    cout&lt;&lt;p2&lt;&lt;endl;
+    //copy()方法
+    str=&quot;world&quot;;
+    char p3[50];
+    //s.copy(cstr, n, pos)       从字符数组cstr的pos位置开始，复制n个字符到字符串s中
+    str.copy(p3, 5, 0);         
+    *(p3+5)= '\0';                 //添加结束符
+    cout&lt;&lt;p3&lt;&lt;endl;
+}
+
+4.char *--&gt;string
+string s;
+char *p = &quot;helloworld&quot;;
+s = p;
+
+5.string--&gt;char[]
+string pp = &quot;helloworld&quot;;
+char p[20];
+int i;
+for( i=0;i&lt;pp.length();i++)
+    p[i] = pp[i];
+p[i] = '\0';                  //添加结束符
+
+6.char[]--&gt;string
+string s;
+char p[20] = &quot;helloworld&quot;;
+s = p;
+
+7.char[]--&gt;char*
+char pp[20] = &quot;helloworld&quot;;
+char* p = pp;
+
+8.char*--&gt;char[]
+#include&lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;algorithm&gt;
+#include &lt;string&gt;
+#include &lt;string.h&gt;
+using namespace std;
+int main(void)
+{	
+    //利用&lt;string.h&gt;库的strcpy()方法     
+    char arr1[20];
+    char* tmp1 = &quot;helloworld&quot;;
+    strcpy(arr1, tmp1);
+    cout&lt;&lt;arr1&lt;&lt;endl;
+    //循环遍历
+    char arr2[20];
+    char* tmp2 = &quot;helloworld&quot;;
+    int i = 0;
+    while (*tmp2 != '\0')
+            arr2[i++] = *tmp2++;
+    arr2[i] = '\0';             //添加结束符
+    cout&lt;&lt;arr2&lt;&lt;endl;	
+}
+
+9.int--&gt;string
+#include&lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;string&gt;
+using namespace std;
+int main(void)
+{
+	int a = 7;
+	float b = 3.14;
+	double c = 1.415649363;
+	//利用string库函数中函数to_string 
+	string a_str = to_string(a);
+	string b_str = to_string(b);
+	string c_str = to_string(c);
+	cout &lt;&lt; &quot;a&quot; &lt;&lt; endl;
+	cout &lt;&lt; &quot;b&quot; &lt;&lt; endl;
+	cout &lt;&lt; &quot;c&quot; &lt;&lt; endl;
+}
+
+10.string--&gt;int
+#include&lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;algorithm&gt;
+#include &lt;string&gt;
+using namespace std;
+int main(void)
+{
+	string num_str = &quot;2142&quot;;
+	//利用string库中的stoi函数 
+	int num_int = stoi(num_str);
+	cout&lt;&lt;num_int&lt;&lt;endl;
+	//利用标准库中的atoi函数
+	string s = &quot;51426&quot;;
+	int value = atoi(s.c_str());
+	cout &lt;&lt; value &lt;&lt; endl;
+}
+char* 和 char[]区别的一些理解 https://blog.csdn.net/u012611878/article/details/7829103
+
+11.
+string 对象与字符数组互操作
+下面这个程序演示了字符数组与 string 对象的输入与输出：
+#include &lt;string&gt;
+#include &lt;iostream&gt;
+using namespace std;
+int main(int argc, char* argv[])
+{
+    string s;
+    char ss[100];
+    //输入字符串到字符数组中
+    scanf(&quot;%s&quot;,&amp;ss);
+    //字符数组赋值线字符串对象
+    s=ss;
+    //用 printf 输出字符串对象，要采用 c_str()方法
+    printf(s.c_str());
+    //换行
+    cout&lt;&lt;endl;
+    //用 printf 输出字符数组
+    printf(&quot;%s&quot;,ss);
+    //换行
+    cout&lt;&lt;endl;
+    //用 cout 输出字符串对象
+    cout&lt;&lt;s&lt;&lt;endl;
+    //用 cout 输出字符数组
+    cout&lt;&lt;ss&lt;&lt;endl;
+    return 0;
+}
+输出结果（从键盘输入“abc123”字符串后回车）：
+abc123
+abc123
+abc123
+abc123
+abc123
+
+12.string 对象与 sscanf 函数
+在 C 语言中，sscanf 函数很管用，它可以把一个字符串按你需要的方式分离出子串，
+甚至是数字。下面这个程序演示了 sscanf 函数的具体用法：
+#include &lt;string&gt;
+#include &lt;iostream&gt;
+using namespace std;
+int main(int argc, char* argv[])
+{
+    string s1,s2,s3;
+    char sa[100],sb[100],sc[100];
+    //将字符串分离成子串，分隔符为空格
+    sscanf(&quot;abc 123 pc&quot;,&quot;%s %s %s&quot;,sa,sb,sc);
+    s1=sa;
+    s2=sb;
+    s3=sc;
+    cout&lt;&lt;s1&lt;&lt;&quot; &quot;&lt;&lt;s2&lt;&lt;&quot; &quot;&lt;&lt;s3&lt;&lt;endl;
+    //将字符串分离成数字，分隔符为空格
+    //当用到数字的时候，跟 scanf 一样，它要传指针地址
+    int a,b,c;
+    sscanf(&quot;1 2 3&quot;,&quot;%d %d %d&quot;,&amp;a,&amp;b,&amp;c);
+    cout&lt;&lt;a&lt;&lt;&quot; &quot;&lt;&lt;b&lt;&lt;&quot; &quot;&lt;&lt;c&lt;&lt;endl;
+    //将字符串分离成数字，分隔符为“,”和“$”
+    //当用到数字的时候，跟 scanf 一样，它要传指针地址
+    int x,y,z;
+    sscanf(&quot;4,5$6&quot;,&quot;%d,%d$%d&quot;,&amp;x,&amp;y,&amp;z);
+    cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;endl;
+    return 0;
+}
+运行结果：
+36
+
+abc 123 pc
+1 2 3
+4 5 6
+1.  string 对象与数值相互转换
+有时候，string 对象与数值之间需要相互转换，下面这个例子详细说明了如何完成这
+项工作：
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;sstream&gt;
+using namespace std;
+//C++方法：将数值转换为 string
+string convertToString(double x)
+{
+ostringstream o;
+if (o &lt;&lt; x)
+return o.str();
+return &quot;conversion error&quot;;//if error
+}
+//C++方法：将 string 转换为数值
+double convertFromString(const string &amp;s)
+{
+istringstream i(s);
+double x;
+if (i &gt;&gt; x)
+return x;
+return 0.0;//if error
+}
+int main(int argc, char* argv[])
+{
+//将数值转换为 string 的第一种方法：C 方法
+char b[10];
+string a;
+sprintf(b,&quot;%d&quot;,1975);
+a=b;
+cout&lt;&lt;a&lt;&lt;endl;
+//将数值转换为 string 的第二种方法：C++方法
+string cc=convertToString(1976);
+cout&lt;&lt;cc&lt;&lt;endl;
+//将 string 转换为数值的方法：C++方法
+string dd=&quot;2006&quot;;
+int p=convertFromString(dd)+2;
+cout&lt;&lt;p&lt;&lt;endl;
+return 0;
+}
+
+
+总结
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main() {
+	/*vector&lt;int&gt; m;
+	vector&lt;int&gt; n;
+	m.push_back(1);
+	m.push_back(3);
+	n.push_back(2);
+	n.push_back(4);
+	map&lt;int,string&gt; mq;
+    mq.insert(pair&lt;int,string&gt;(3,&quot;qwe&quot;));
+    mq.insert(pair&lt;int,string&gt;(4,&quot;qwddsa&quot;));
+    mq.insert(pair&lt;int,string&gt;(1,&quot;123sd&quot;));
+    cout&lt;&lt;mq[1]&lt;&lt;endl;
+    //定义 map 对象，当前没有任何元素
+    map&lt;int,char&gt; m;
+    //插入元素，按键值的由小到大放入黑白树中
+    m[25]='m';
+    m[28]='k';
+    m[10]='x';
+    m[30]='a';
+    //反向遍历元素
+    map&lt;int,char&gt;::reverse_iterator rit;
+    for(rit=m.rbegin();rit!=m.rend();rit++)
+    {
+    //输出键值与映照数据
+    cout&lt;&lt;(*rit).first&lt;&lt;&quot; : &quot;&lt;&lt;(*rit).second&lt;&lt;endl;
+    }*/
+    //cout&lt;&lt;string(3,'c')&lt;&lt;endl;
+    int a = 7;
+    string a2;
+    char *a3;
+    string b=&quot;123&quot;;
+    int b2;
+    char *b3;
+    char*p=&quot;567&quot;;
+    string p2;
+    int p3;
+    char q[]=&quot;789&quot;;
+    cout&lt;&lt;&quot;1.int-&gt;string&quot;&lt;&lt;endl;
+    //利用string库函数中函数to_string
+    a2 = to_string(a);
+    cout&lt;&lt;a2&lt;&lt;endl;
+    cout&lt;&lt;&quot;2.string-&gt;int&quot;&lt;&lt;endl;
+	//利用string库中的stoi函数
+	b2 = stoi(b);
+	cout&lt;&lt;b2&lt;&lt;endl;
+	//利用标准库中的atoi函数
+	b2 = atoi(b.c_str());
+	cout&lt;&lt;b2&lt;&lt;endl;
+    cout&lt;&lt;&quot;3.int-&gt;char&quot;&lt;&lt;endl;
+    //C++流对象转换
+    int aa = 123;
+    ostringstream ss;
+    ss &lt;&lt; aa;
+    cout &lt;&lt;ss.str() &lt;&lt; endl;
+    //sprintf()数字转化为字符串
+    sprintf(a3, &quot;%d&quot;,a);
+    cout&lt;&lt;a3&lt;&lt;endl;
+    cout&lt;&lt;&quot;4.char-&gt;int&quot;&lt;&lt;endl;
+	p3 = atoi(p);
+	cout&lt;&lt;p3&lt;&lt;endl;
+	//sscanf(m,&quot;%d&quot;,&amp;x);字符串转化为数字
+	/*const char* p4=&quot;101&quot;;
+	sscanf(p4,&quot;%s&quot;,&amp;p3);
+	cout&lt;&lt;p3&lt;&lt;endl;*/
+    cout&lt;&lt;&quot;5.string-&gt;char&quot;&lt;&lt;endl;
+    //data()方法
+
+    //c_str()方法
+    //使用char * p=(char*)str.c_str()效果相同
+    const char *b4 = b.c_str();
+    cout&lt;&lt;b4&lt;&lt;endl;
+    cout&lt;&lt;&quot;6.char-&gt;string&quot;&lt;&lt;endl;
+    string s11;
+    char *p11 =&quot;helloworld&quot;;
+    s11 = p11;
+    cout&lt;&lt;s11&lt;&lt;endl;
+}
+
+</code></pre>
+<h2 id="二-常用头文件">二、常用头文件</h2>
+<ol>
+<li>万能头文件<br>
+#include&lt;bits/stdc++.h&gt;包含了目前c++所包含的所有头文件</li>
+<li>#include<cstdlib></li>
+</ol>
+<ul>
+<li>rand()重复运行不会变化，所以加入srand(int x)<br>
+要在每次运行程序时获得不同的随机数字流，则必须为随机数生成器提供一个种子以开始。在 C++ 中，这是通过调用 srand 函数完成的。<br>
+在 rand 被调用之前，srand 函数要先被调用，并且 srand 在整个程序中仅被调用一次<br>
+如果你要产生0~99这100个整数中的一个随机整数，可以表达为：int num = rand() % 100;<br>
+如果要产生1~100，则是这样：int num = rand() % 100 + 1;<br>
+#<ctime> srand(time(0));srand((int)time(0));<br>
+例如0-2</li>
+</ul>
+<pre><code>    srand(time(0));
+    for(int i=0;i&lt;10;i++)
+    {
+        int q=rand()%3;
+        cout&lt;&lt;q&lt;&lt;endl;
+    }
+</code></pre>
+<ol start="3">
+<li>#include<iomanip></li>
+</ol>
+<ul>
+<li>setw(n)<br>
+宽度设置用于输人时，只对字符串有效,输出时指最小输出宽度。<br>
+与宽度设置有关的操作符是: setw(int n)<br>
+等价函数调用为:io.width(n)<br>
+其中,n是一个表示宽度的表达式。如果用于字符串输人，实际输人的字符串的最大长<br>
+度为n-1,也就是宽度n包含字符串结束符在内。函数width返回此前设置的宽度。<br>
+当实际数据宽度小于指定宽度时，多余位置用填充字符(通常是空格)填满:当实际数据<br>
+宽度大于设置宽度时，仍按实际宽度输出。初始宽度值为0,表示按实际宽度输出。<br>
+注意:宽度设置的效果只对次输 人或输出有效，在完成一 个数据的输 人或输 出后,宽<br>
+度设置自动恢复为0(表示按数据实际宽度输入输出)。宽度设置是所有格式设置中唯的<br>
+一次有效的设置。</li>
+<li>setprecision(int n)<br>
+输入输出精度是针对浮点数的，如果采用浮点数格式，精度含义是有效位数；如果采用定点格式或指数形式为小数位数。默认精度为6，<br>
+设置为0意味回到默认，设置精度一直有效。</li>
+</ul>
+<pre><code>const double value = 12.3456789;
+cout &lt;&lt; setprecision(4) &lt;&lt; value &lt;&lt; endl; // 改成4精度，所以输出为12.35
+cout &lt;&lt; setprecision(8) &lt;&lt; value &lt;&lt; endl; // 改成8精度，所以输出为12.345679
+cout &lt;&lt; fixed &lt;&lt; setprecision(4) &lt;&lt; value &lt;&lt; endl; // 加了fixed意味着是固定点方式显示，所以这里的精度指的是小数位，输出为12.3457
+cout &lt;&lt; value &lt;&lt; endl; // fixed和setprecision的作用还在，依然显示12.3457
+cout.unsetf( ios::fixed ); // 去掉了fixed，所以精度恢复成整个数值的有效位数，显示12.35
+cout &lt;&lt; value &lt;&lt; endl;
+cout.precision( 6 ); // 恢复成原来的样子，输出为12.3457
+cout &lt;&lt; value &lt;&lt; endl;
+</code></pre>
+<ul>
+<li>setfill(char c)填充字符  ，初始为空格</li>
 </ul>
 <ol start="4">
-<li>学会以空间换时间</li>
+<li>#include <cstring></li>
 </ol>
 <ul>
-<li>在算法竞赛中，我们一般会经常超出时间限制，但是超出空间限制的还是很少的，一般比赛给的都是16MB甚至256MB，根本用不完啊，而且多开几个数组也完全的占不了几个字节，但是这能让我们的程序节省上百倍的时间。这里就拿昨天写的一题来举例吧：LeetCode 每日一题 42. 接雨水,原文有具体的题目和代码，这里为了方便，我们把两段代码分别拿过来。</li>
+<li>sprintf(s, &quot;%d&quot;,x);数字转化为字符串 <code>char s[10];int x</code></li>
+<li>sscanf(m,&quot;%d&quot;,&amp;x);<br>
+sscanf(m,&quot;%s&quot;,&amp;x);字符串转化为数字   数字要传递指正地址所以要用到&amp;,  &amp;x;可以按照你需要的方式分离出子串,</li>
+</ul>
+<pre><code>char sa[10],sb[10],sc[10];
+sscanf(&quot;abc 123 pc&quot;,&quot;%s %s %s&quot;,sa,sb,sc);
+</code></pre>
+<ul>
+<li>strrev(m) 字符串反转</li>
+<li>strlen()返回字符串长度无'\0'</li>
+<li>strcpy()复制字符串</li>
+<li>strncpy()多了个复制个数</li>
+<li>char *strncpy( char *to, const char *from, size_t count );</li>
+<li>strcat()连接两个字符串;</li>
+<li>char *strncat( char *str1, const char *str2, size_t count );</li>
+<li>int strcmp( const char *str1, const char *str2 );比较字符串</li>
+<li>int strncmp( const char *str1, const char *str2, size_t count );<br>
+&lt;0 str1 is less than str2<br>
+=0 str1 is equal to str2</li>
+</ul>
+<blockquote>
+<p>0 str1 is greater than str2</p>
+</blockquote>
+<ul>
+<li>strchr<br>
+函数原型：extern char *strchr(char *str,char character)<br>
+参数说明：str为一个字符串的指针，character为一个待查找字符。<br>
+所在库名：#include &lt;string.h&gt;<br>
+函数功能：从字符串str中寻找字符character第一次出现的位置。<br>
+返回说明：返回指向第一次出现字符character位置的指针，如果没找到则返回NULL。<br>
+其它说明：还有一种格式char *strchr( const char *string, int c )，这里字符串是以int型给出的（int character='k' ;）</li>
+<li>memset(<br>
+void *memset(void *s, int v, size_t n);<br>
+复制字符 v（一个无符号字符）到参数 s 所指向的字符串的前 n 个字符。<br>
+这里s可以是数组名，也可以是指向某一内在空间的指针；<br>
+v为要填充的值；<br>
+n为要填充的字节数；<br>
+(在memset使用时要千万小心，在给char以外的数组赋值时，只能初始化为0或者-1。比如int s[3][3];<br>
+只能memset(a, 0, 36);或者memset(a, -1, 36)😉<br>
+例，</li>
+</ul>
+<pre><code>char buffer[] = &quot;This is a test of the memset function&quot;;
+cout &lt;&lt; buffer &lt;&lt; endl;
+memset(buffer, '*', 4);
+\\或者memset(buffer, '*', sizeof(buffer)-1);字符串会多一个'\0'
+cout &lt;&lt; buffer &lt;&lt; endl;
+</code></pre>
+<ul>
+<li>memcpy<br>
+#include &lt;string.h&gt;<br>
+void *memcpy( void *to, const void *from, size_t count );<br>
+功能：函数从from中复制count 个字符到to中，并返回to指针。 如果to 和 from 重叠，则函数行为不确定。</li>
+<li>memcmp<br>
+#include &lt;string.h&gt;<br>
+int memcmp( const void *buffer1, const void *buffer2, size_t count );<br>
+功能：函数比较buffer1 和 buffer2的前count 个字符。返回值如下:<br>
+Value                解释<br>
+less than 0        buffer1 is less than buffer2<br>
+equal to 0         buffer1 is equal to buffer2<br>
+greater than 0   buffer1 is greater than buffer2</li>
+</ul>
+<ol start="5">
+<li>#include<algorithm></li>
+</ol>
+<ul>
+<li>reverse函数功能是逆序（或反转），多用于字符串、数组、容器。头文件是#include <algorithm><br>
+reverse函数用于反转在[first,last)范围内的顺序（包括first指向的元素，不包括last指向的元素），reverse函数无返回值<br>
+eg.<br>
+string str=&quot;hello world , hi&quot;;<br>
+reverse(str.begin(),str.end());//str结果为 ih , dlrow olleh<br>
+vector<int> v = {5,4,3,2,1};<br>
+reverse(v.begin(),v.end());//容器v的值变为1,2,3,4,5</li>
+<li>sort(begin,end,cmp),cmp参数可以没有,如果没有默认非降序排序。cmp需要自己设计<br>
+若设计为非升序排序，则cmp函数的编写：</li>
+</ul>
+<pre><code>bool cmp（int a,int b）
+{
+　　return a&gt;b;
+}
+</code></pre>
+<ol start="6">
+<li>其他</li>
+</ol>
+<ul>
+<li>getchar()<br>
+三种用法：<br>
+1、从缓冲区bai读du走一个字符，相当于清除缓冲区 <br>
+2、前zhi面的scanf()在读取输入时会在缓冲区中留下一个字符dao'\n'（输入完s[i]的值后按回车键所致），所以如果不在此加一个getchar()把这个回车符取走的话，gets(）就不会等待从键盘键入字符，而是会直接取走这个“无用的”回车符，从而导致读取有误 <br>
+3、getchar()是在输入缓冲区顺序读入一个字符(包括空格、回车和Tab) <br>
+错在getchar() 是从键盘读取一个字符放入缓冲区，然后在取出来，你在输入某个数或者字符后敲回车其实缓冲区也接受了你的回车了。<br>
+可以这么修改：</li>
+</ul>
+<pre><code>char ch;
+int key;
+printf(&quot;please input key&quot;);
+scanf(&quot;%d&quot;,&amp;key);
+fflush(stdin);
+printf(&quot;please input ming wen\n&quot;);
+ch=getchar();
+fflush(stdin);
+while(ch!='\n')
+{
+    putchar(ch+key);
+    printf(&quot;\n&quot;);
+    ch=getchar();
+    fflush(stdin);
+}
+</code></pre>
+<p>加上fflush(stdin);来清空缓冲区<br>
+想要程序结束，直接敲回车就可以了</p>
+<ol start="7">
+<li>#include <numeric></li>
+</ol>
+<ul>
+<li>accumulate函数<br>
+在头文件 #include <numeric> 里（但是我用的时候在PAT里面不写头文件似乎也没关系……）<br>
+主要是用来累加容器里面的值，比如int、string之类，可以少写一个for循环<br>
+比如直接统计 vector<int> v 里面所有元素的和：（第三个参数的0表示sum的初始值为0）<br>
+int sum = accumulate(v.begin(), v.end(), 0);<br>
+比如直接将 vector<string> v 里面所有元素一个个累加到string str中：（第三个元素表示str的初始值为空字符串）<br>
+string str = accumulate(v.begin(), v.end(), &quot;&quot;);</li>
 </ul>
 
             </div>
