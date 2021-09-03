@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eric-tom.github.io</id>
     <title>Welcome to Eric&apos;s blog!</title>
-    <updated>2021-09-03T13:34:41.595Z</updated>
+    <updated>2021-09-03T13:58:22.007Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eric-tom.github.io"/>
     <link rel="self" href="https://eric-tom.github.io/atom.xml"/>
@@ -466,14 +466,12 @@ bool next_permutation (BidirectionalIterator first, BidirectionalIterator last, 
 <h3 id="2算法实现-3">2.算法实现</h3>
 <h2 id="四-交换排序-冒泡排序">四、交换排序－冒泡排序</h2>
 <h3 id="1时空复杂度-4">1.时空复杂度</h3>
-<h3 id="2算法实现-4">2.算法实现</h3>
-<h3 id="1时空复杂度-5">1.时空复杂度</h3>
 <p><img src="https://eric-tom.github.io/post-images/1630676066823.png" alt="" loading="lazy"><br>
 下面分析程序的时间和空间效率。<br>
 (1）时间复杂度,也就是程序执行了多少步骤,花了多少时间。<br>
 在bubble _sort()中有两层循环.循环次数具n-1+n-2+...+1≈n2 /2；在swap(a,b)中做了3次操作;总的计算次数是3n2 /2.复杂度记为((n2),当n=100万时,计算超过1万亿次。如果提交到OJ,由于OJ每秒只能运行1亿次,必然返回TLE超时。可以推出,只有n &lt; 1万时才勉强能用冒泡算法。<br>
 (2空间复杂度,也就是程序占用的内存空间。程序使用int a[1000001]存储数据，bubble_sort()也没有使用额外的空间。int是32位整数﹐占用4个字节,所以int a[1000001]共使用了4MB空间。这是冒泡算法的优点,它不额外占用空间。</p>
-<h3 id="2算法实现-5">2.算法实现</h3>
+<h3 id="2算法实现-4">2.算法实现</h3>
 <pre><code>#define swap(a,b){int temp = a ; a = b ; b = temp ;}
 int n, m;//输入n个数，排序后从大到小输出前m个,0 &lt; m.n &lt; 1000000,数处于[-500000,500000]的整数
 int a[1000001];
@@ -490,26 +488,692 @@ void bubble_sort()//冒泡排序
 }
 </code></pre>
 <h2 id="五-交换排序-快速排序">五、交换排序－快速排序</h2>
+<h3 id="1时空复杂度-5">1.时空复杂度</h3>
+<p>快速排序是一种基于分治法的优秀排序算法。这里先直接用STL 的 sort()函数,它是改良版的快速排序,称为“内省式排序”。<br>
+在上面的程序中,把“bubble sort():”改为“sort(a+1，a+n+1);”就完成了a[1]到a[n的]的排序,结果仍然保存在a中。<br>
+算法的时间复杂度是O(nlog2 n),当n=100万时,100万×log:100万≈2000万。在hdu上提交,返回的运行时间是600ms,正好通过OJ的测试。</p>
+<h3 id="2算法实现-5">2.算法实现</h3>
+<pre><code>#include&lt;iostream&gt;
+using namespace std;
+int fun(int b[], int low, int high)
+{
+	b[0] = b[low];
+	int standard=b[low];
+	while (low &lt; high&amp;&amp;standard &lt;= b[high]) high--;
+	b[low] = b[high];
+	while (low &lt; high&amp;&amp;standard &gt;= b[low]) low++;
+	b[high] = b[low]; 
+	b[low] = b[0];
+	return low;
+}
+void QuickSort(int a[],int low,int high)
+{
+	if (low &gt;= high) return;
+	int x = fun(a,low, high);
+	QuickSort(a, 1, x - 1);
+	QuickSort(a, x+1,high);
+}
+
+int main()
+{
+	int a[11] = { 0,1,8,5,7,6,3,4,9,11,2 };
+	QuickSort(a,1,10);
+	for (int i = 1; i &lt;= 10; i++) cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;
+	return 0;
+}
+</code></pre>
+<h2 id="六-选择排序-简单选择排序">六、选择排序－简单选择排序</h2>
 <h3 id="1时空复杂度-6">1.时空复杂度</h3>
 <h3 id="2算法实现-6">2.算法实现</h3>
-<h2 id="六-选择排序-简单选择排序">六、选择排序－简单选择排序</h2>
+<h2 id="七-选择排序-树形选择排序">七、选择排序－树形选择排序</h2>
 <h3 id="1时空复杂度-7">1.时空复杂度</h3>
 <h3 id="2算法实现-7">2.算法实现</h3>
-<h2 id="七-选择排序-树形选择排序">七、选择排序－树形选择排序</h2>
+<h2 id="八-选择排序-堆排序">八、选择排序－堆排序</h2>
 <h3 id="1时空复杂度-8">1.时空复杂度</h3>
 <h3 id="2算法实现-8">2.算法实现</h3>
-<h2 id="八-选择排序-堆排序">八、选择排序－堆排序</h2>
+<h2 id="九-归并排序">九、归并排序</h2>
 <h3 id="1时空复杂度-9">1.时空复杂度</h3>
 <h3 id="2算法实现-9">2.算法实现</h3>
-<h2 id="九-归并排序">九、归并排序</h2>
+<h2 id="十-基数排序">十、基数排序</h2>
 <h3 id="1时空复杂度-10">1.时空复杂度</h3>
 <h3 id="2算法实现-10">2.算法实现</h3>
-<h2 id="十-基数排序">十、基数排序</h2>
+<h2 id="十一-外部排序">十一、外部排序</h2>
 <h3 id="1时空复杂度-11">1.时空复杂度</h3>
 <h3 id="2算法实现-11">2.算法实现</h3>
-<h2 id="十一-外部排序">十一、外部排序</h2>
-<h3 id="1时空复杂度-12">1.时空复杂度</h3>
-<h3 id="2算法实现-12">2.算法实现</h3>
+<h1 id="第三节-搜索技术">第三节 搜索技术</h1>
+<h2 id="一-排列组合问题">一、排列组合问题</h2>
+<h3 id="1介绍">1.介绍</h3>
+<p>排列和组合问题是在暴力枚举的时候经常遇到的,一般有3种常见情况,<br>
+问题1:打印n个数的全排列,共n!个。<br>
+问题2:打印n个数中任意m个数的全排列,共n!/(n-m)!个。<br>
+问题3:打印n个数中任意m个数的组合,共n!/m!*(n-m)!个。<br>
+一个包含n个元素的集合它的子集有2n个。每个子集可以认为对应一个二进制数，如n=3的集合{a0,a1,a2}，∅为000，a0为001。<br>
+n个数中任意m个数的组合,转化查找1的个数为k的二进制数，一种方法逐位查找，查找n次，另一种更快，另外有一个更快的方法,它可以直接定位二进制数中1的位置,跳过中间的0。它用到个神奇的操作——kk=kk &amp;.(k-1),功能是消除k的二进制数的最后一个1。连续进行这个操作,每次消除一个1,直到全部消除为止,操作次数就是1的个数。例如二进制数1011,经过连续3次操作后,所有的1都消除了：<br>
+1011 &amp;(1011—1)=1011 &amp;.1010=1010<br>
+1010 &amp; (1010-1)-1010 &amp;1001=1000<br>
+1000 &amp; （1000-1)=1000 &amp; 0111=0000<br>
+利用这个操作可以计算出二进制数中1的个数。用num 统计1的个数,具体步骤如下:<br>
+(1)用kk=kk&amp;(kk-1)清除kk的最后一个1。(2) num++。<br>
+(3）继续上述操作,直到kk=0。</p>
+<h3 id="2代码">2.代码</h3>
+<pre><code>#include &lt;bits\stdc++.h&gt;
+using namespace std;
+#define Swap(a,b) {char temp=b;b=a;a=temp;}
+int num=0;
+//char data[]=&quot;5214&quot;;
+char data[]=&quot;abcd&quot;;
+//问题1:打印n个数的全排列,共n!个。
+void APmtSTL(int s,int t)//对数组data从第s个到第t个进行全排序STL
+{
+    sort(data+s-1,data+t);
+    int  order=1;
+    do
+    {
+        cout&lt;&lt;order++&lt;&lt;&quot;: \t&quot;;
+        for(int i=s-1;i&lt;t;i++)
+        {
+            cout&lt;&lt;data[i]&lt;&lt;&quot; &quot;;
+        }
+        cout&lt;&lt;endl;
+        num++;
+
+    }while(next_permutation(data+s-1,data+t));
+
+}
+void PmtRcs(int s,int t)//PermutationRecursion,对数组data从第s个到第t个进行全排序递归
+{
+    if(s==t)
+    {
+        num++;//这是一次最终递归的结束位置，可以操作一些东西
+        for(int i=0;i&lt;4;i++)
+        {
+            cout&lt;&lt;data[i]&lt;&lt;&quot; &quot;;
+        }
+        cout&lt;&lt;endl;
+    }
+    else
+    {
+        for(int i=s-1;i&lt;t;i++)
+        {
+            Swap(data[s-1],data[i]);//把当前第一个数与后面所有数交换
+            PmtRcs(s+1,t);
+            Swap(data[s-1],data[i]);//恢复用于下一次交换
+        }
+
+    }
+}
+//问题2:打印n个数中任意m个数的全排列,共n!/(n-m)!个。比如在10个数中任取3个数进行全排列，把end改为3，判断改就行了
+void PmtRcs2(int s,int t)//对数组data从第s个到第t个进行10选3全排序递归
+{
+    if(s==3)
+    {
+        num++;//这是一次最终递归的结束位置，可以操作一些东西
+        for(int i=0;i&lt;3;i++)
+        {
+            cout&lt;&lt;data[i]&lt;&lt;&quot; &quot;;
+        }
+        cout&lt;&lt;endl;
+    }
+    else
+    {
+        for(int i=s-1;i&lt;t;i++)
+        {
+            Swap(data[s-1],data[i]);//把当前第一个数与后面所有数交换
+            PmtRcs2(s+1,t);
+            Swap(data[s-1],data[i]);//恢复用于下一次交换
+        }
+
+    }
+}
+//问题3:打印n个数中任意m个数的组合,共n!/m!*(n-m)!个。
+void SubSet(int n)//求包含n个元素的子集数
+{
+    int emptySet;
+    for(int i=0;i&lt;(1&lt;&lt;n);i++)
+    {
+        emptySet=1;
+        for(int j=0;j&lt;n;j++)
+        {
+            if(i&amp;(1&lt;&lt;j))
+            {
+                emptySet=0;
+                cout&lt;&lt;data[j]&lt;&lt;&quot; &quot;;
+            }
+        }
+        if(emptySet)  cout&lt;&lt;&quot;Φ&quot;;
+        cout&lt;&lt;endl;
+    }
+    num=1&lt;&lt;n;
+    cout&lt;&lt;&quot;集合数为&quot;&lt;&lt;n&lt;&lt;&quot;，有&quot;&lt;&lt;num&lt;&lt;&quot;个子集&quot;&lt;&lt;endl;
+}
+void SubSet2(int n,int k)//n个数中任意m个数的组合
+{
+    int emptySet;
+    int kk;
+    int num1;
+    for(int i=0;i&lt;(1&lt;&lt;n);i++)
+    {
+        num1=0;//计算1的个数
+        kk=i;
+        emptySet=1;
+        while(kk)
+        {
+            kk=kk&amp;(kk-1);//消除一个1
+            num1++;
+        }
+        if(num1==k)
+        {
+            num++;
+            for(int j=0;j&lt;n;j++)
+            {
+                if(i&amp;(1&lt;&lt;j))
+                {
+                    emptySet=0;
+                    cout&lt;&lt;data[j]&lt;&lt;&quot; &quot;;
+                }
+            }
+            if(emptySet) cout&lt;&lt;&quot;Φ&quot;;
+            cout&lt;&lt;endl;
+        }
+    }
+    cout&lt;&lt;&quot;从&quot;&lt;&lt;n&lt;&lt;&quot;个选&quot;&lt;&lt;k&lt;&lt;&quot;个的组合，一共&quot;&lt;&lt;num&lt;&lt;&quot;个&quot;&lt;&lt;endl;
+}
+void Test1(int n)//测试左移
+{
+    //unsigned int a = 1;
+    int a=1 &lt;&lt; n;
+    cout&lt;&lt;a&lt;&lt;endl;
+}
+void Test2(int n)//测试&amp;
+{
+    int a=6 &amp; n;
+    cout&lt;&lt;a&lt;&lt;endl;
+}
+int main()
+{
+    /*APmtSTL(1,4);
+    cout&lt;&lt;&quot;全排列数：&quot;&lt;&lt;num&lt;&lt;endl;*/
+    /*PmtRcs(1,4);
+    cout&lt;&lt;&quot;全排列数：&quot;&lt;&lt;num&lt;&lt;endl;*/
+    /*PmtRcs2(1,4);
+    cout&lt;&lt;&quot;4选3全排列数：&quot;&lt;&lt;num&lt;&lt;endl;*/
+    /*int n;
+    cin&gt;&gt;n;
+    SubSet(n);*/
+    int n,k;
+    cin&gt;&gt;n&gt;&gt;k;
+    SubSet2(n,k);
+    return 0;
+}
+</code></pre>
+<h2 id="二-bfs">二、BFS</h2>
+<h3 id="1介绍-2">1.介绍</h3>
+<p>一般用队列这种数据结构来具体实现BFS</p>
+<h3 id="2例题">2.例题</h3>
+<p>（1）</p>
+<ul>
+<li>例题：hdu 1312题<br>
+•	一个长方形的房间，铺着方砖，每块砖是 #或黑点. 。<br>
+•	一个人站在黑砖上，可以按上、下、左、右方向移动到相邻的砖。<br>
+•	他不能在#上移动，他只能在黑砖上移动。<br>
+•	起点是@，要求：遍历所有黑点。</li>
+<li>代码</li>
+</ul>
+<pre><code>//ECUST luoyongjun
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+char room[23][23];
+int dir[4][2] = {
+    {-1,0},  //向左。左上角坐标是(0, 0)
+    {0,-1},  //向上
+    {1,0},   //向右
+    {0,1}    //向下
+};
+int Wx, Hy, num;                 //Wx行，Hy列。用num统计可走的位置有多少
+#define CHECK(x, y) (x&lt;Wx &amp;&amp; x&gt;=0 &amp;&amp; y &gt;=0 &amp;&amp; y&lt;Hy) //是否在room里
+struct node {int x,y;};
+void BFS(int dx,int dy){
+    num=1;                         //起点也包含在砖块内
+    queue &lt;node&gt; q;              //队列中放坐标点
+    node start, next;
+    start.x = dx;
+    start.y = dy;
+    q.push(start);
+    while(!q.empty()) {
+        start = q.front();
+        q.pop();
+//cout&lt;&lt;&quot;out&quot;&lt;&lt;start.x&lt;&lt;start.y&lt;&lt;endl;    //打印出队列情况，进行验证
+        for(int i=0; i&lt;4; i++) { //按左、上、右、下，4个方向顺时针逐一搜索
+            next.x = start.x + dir[i][0];
+            next.y = start.y + dir[i][1];
+            if(CHECK(next.x,next.y) &amp;&amp; room[next.x][next.y]=='.') {
+                room[next.x][next.y]='#';           //进队之后，标记为已经处理过
+                num++;
+                q.push(next);
+            }
+        }
+    }
+}
+int main(){
+    int x, y, dx, dy;
+    while (cin &gt;&gt; Wx &gt;&gt; Hy) {   	          //Wx行，Hy列
+        if (Wx==0 &amp;&amp; Hy==0)   			 //结束
+            break;
+        for (y = 0; y &lt; Hy; y++) {         //有Hy列
+            for (x = 0; x &lt; Wx; x++) { 	 //一次读入一行
+                cin &gt;&gt; room[x][y];
+                if(room[x][y] == '@') {     //读入起点
+                    dx = x;
+                    dy = y;
+                }
+            }
+        }
+        num = 0;
+        BFS(dx, dy);
+        cout &lt;&lt; num &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<p>（2）</p>
+<ul>
+<li>八数码问题<br>
+在一个3×3的棋盘上，放置编号为1~8的8个方块，每个占一格，另外还有一个空格。与空格相邻的数字方块可以移动到空格里。<br>
+任务1：指定初始棋局和目标棋局，计算出最少的移动步数；<br>
+任务2：输出数码的移动序列。</li>
+<li>代码</li>
+</ul>
+<pre><code>#include&lt;bits/stdc++.h&gt;
+const int LEN = 362888;       //状态共9!=362880种
+using namespace std;
+struct node{
+    int state[9];       //记录一个八数码的排列，即一个状态
+    int dis;             //记录到起点的距离
+};
+int dir[4][2] = {{-1,0}, {0,-1},{1,0},{0,1}};
+           //左、上、右、下顺时针方向。左上角坐标是(0,0)
+int visited[LEN]={0};  //与每个状态对应的记录，Cantor函数对它置数，并判重
+int start[9];            //开始状态
+int goal[9];             //目标状态
+long int factory[] = {1,1,2,6,24,120,720,5040,40320,362880};
+                             //Cantor用到的常数
+bool Cantor(int str[], int n) {     //用康托展开判重
+    long result = 0;
+    for(int i = 0; i &lt; n; i++) {
+        int counted = 0;
+        for(int j = i+1; j &lt; n; j++) {
+            if(str[i] &gt; str[j])       //当前未出现的元素中是排在第几个
+                ++counted;
+        }
+        result += counted*factory[n-i-1];
+    }
+    if(!visited[result]) {            //没有被访问过
+        visited[result] = 1;
+        return 1;
+    }
+    else
+        return 0;
+}
+int bfs() {
+    node head;
+    memcpy(head.state, start, sizeof(head.state));  //复制起点的状态
+    head.dis = 0;
+    queue &lt;node&gt; q;          //队列中放状态
+    Cantor(head.state, 9);  //用康托展开判重，目的是对起点的visited[]赋初值
+    q.push(head);             //第一个进队列的是起点状态
+    while(!q.empty()) {              //处理队列
+        head = q.front();
+        q.pop();                       //可在此处打印head.state，看弹出队列的情况
+        int z;
+        for(z = 0; z &lt; 9; z++)        //找这个状态中元素0的位置
+            if(head.state[z] == 0)    //找到了
+                break;
+            //转化为二维，左上角是原点(0, 0)。
+        int x = z%3;          //横坐标
+        int y = z/3;          //纵坐标
+        for(int i = 0; i &lt; 4; i++){   //上、下、左、右最多可能有4个新状态
+            int newx = x+dir[i][0];    //元素0转移后的新坐标
+            int newy = y+dir[i][1];
+            int nz = newx + 3*newy;    //转化为一维
+            if(newx&gt;=0 &amp;&amp; newx&lt;3 &amp;&amp; newy&gt;=0 &amp;&amp; newy&lt;3) {//未越界
+                node newnode;
+                memcpy(&amp;newnode,&amp;head,sizeof(struct node));//复制这新的状态
+                swap(newnode.state[z], newnode.state[nz]);//把0移动到新的位置
+                newnode.dis ++;
+                if(memcmp(newnode.state,goal,sizeof(goal)) == 0)
+                                                           //与目标状态对比
+                    return newnode.dis;             //到达目标状态，返回距离，结束
+                if(Cantor(newnode.state, 9))         //用康托展开判重
+                    q.push(newnode);                   //把新的状态放进队列
+             }
+        }
+    }
+    return -1;            //没找到
+}
+int main(){
+    for(int i = 0; i &lt; 9; i++)  cin &gt;&gt; start[i];       //初始状态
+    for(int i = 0; i &lt; 9; i++)  cin &gt;&gt; goal[i];        //目标状态
+    int num = bfs();
+    if(num != -1)  cout &lt;&lt; num &lt;&lt; endl;
+    else          cout &lt;&lt; &quot;Impossible&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<h2 id="三-a算法未探究">三、A*算法（未探究）</h2>
+<p><img src="https://s3.bmp.ovh/imgs/2021/09/f7dd7d4ff6ad4be5.png" alt="" loading="lazy"><br>
+在搜索过程中，用一个评估函数对当前情况进行评估，得到最好的状态，从这个状态继续搜索，直到目标。设x是当前所在的状态，f(x)是对x的评估函数，有：<br>
+f(x) = g(x) + h(x)<br>
+g(x)表示从初始态到x的实际代价，它不体现x和终点的关系。<br>
+h(x)表示x到终点的最优路径的评估，它就是“启发式”信息，把h(x)称为启发函数。很显然，h(x)决定了A<em>算法的优劣。<br>
+A</em>算法包含了BFS和贪心算法：<br>
+（1）如果h(x) = 0，有f(x) = g(x)，就是普通的BFS算法；<br>
+（2）如果g(x) = 0，有f(x) = h(x)，就是贪心算法，此时图中标注’*’的方块也会被访问到。</p>
+<h2 id="四-双向广搜bfs的增强版未探究">四、双向广搜：BFS的增强版（未探究）</h2>
+<h3 id="1介绍-3">1.介绍</h3>
+<p>同时在起点和目标点向对方做BFS。<br>
+双向广搜比只做一次BFS，搜索的空间减少很多，从而更有效率。<br>
+双向广搜的应用场合是：知道起点和终点，并且正向和逆向都能进行搜索。</p>
+<h3 id="2例题-2">2.例题</h3>
+<p>双向广搜例题：hdu 1401<br>
+有一个8x8的棋盘，上面有4颗棋子，棋子可以上下左右移动。给定一个初始状态，和一个目标状态，问能否在8步内到达。<br>
+思路：从起点和终点分别开始，各自广搜4步，如果出现交点则说明可达。<br>
+程序比较繁琐，有很多细节需要处理，但是难度不高。<br>
+hdu 3567用双向广搜解决八数码问题。</p>
+<h2 id="五-dfs">五、DFS</h2>
+<h3 id="1介绍-4">1.介绍</h3>
+<p>在hdu 1312题（BFS例题），有另外一种算法。<br>
+（1）在初始位置，令num=1，标记这个位置已经走过；<br>
+（2）左、上、右、下4个方向，按顺时针顺序选一个方向走一步；<br>
+（3）在新的位置，num++，标记这个位置已经走过；<br>
+（4）继续前进，如果无路可走，回退到上一步，换个方向再走；<br>
+（5）继续以上过程，直到结束。<br>
+在一个位置，只要有路，就一直走到最深处，直到无路可走，再退回一步，看在上一步的位置能不能换个方向继续往下走。这样就遍历了所有可能走到的位置。<br>
+这个思路就是深度搜索。从初始状态出发，下一步可能有多种状态；选其中一个状态深入，到达新的状态；直到无法继续深入，就回退到前一步，转移到其它状态，然后再深入下去。最后，遍历完所有可以到达的状态，并得到最终的解。</p>
+<h3 id="2dfs和bfs">2.DFS和BFS</h3>
+<p>复杂度：DFS和BFS对大小为m<em>n的图，做一次遍历，复杂度是O(m</em>n)。<br>
+应用场合。DFS用递归实现，程序比BFS更短，一般优先使用。<br>
+不过，像迷宫这样的求最短路径问题，应该用BFS。</p>
+<h3 id="3例题">3.例题</h3>
+<p>hdu 1312题（BFS例题）</p>
+<pre><code>//ECUST luoyongjun
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+char room[23][23];
+int dir[4][2] = {
+    {-1,0},  //向左。左上角坐标是(0, 0)
+    {0,-1},  //向上
+    {1,0},   //向右
+    {0,1}    //向下
+};
+int Wx, Hy, num;                 //Wx行，Hy列。用num统计可走的位置有多少
+#define CHECK(x, y) (x&lt;Wx &amp;&amp; x&gt;=0 &amp;&amp; y &gt;=0 &amp;&amp; y&lt;Hy) //是否在room里
+struct node {int x,y;};
+void DFS(int dx, int dy){
+    room[dx][dy] = '#';                 //标记这个位置，表示已经走过
+      // cout&lt;&lt;&quot;walk:&quot;&lt;&lt;dx&lt;&lt;dy&lt;&lt;endl; //在此处打印走过的位置，验证是否符合
+    num++;
+    for(int i = 0; i &lt; 4; i++) {      //左、上、右、下，4个方向顺时针深搜
+        int newx = dx + dir[i][0];
+        int newy = dy + dir[i][1];
+        if(CHECK(newx, newy) &amp;&amp; room[newx][newy] == '.'){
+             DFS(newx, newy);
+             // cout&lt;&lt;&quot;    back:&quot;&lt;&lt;dx&lt;&lt;dy&lt;&lt;endl;
+ //在此处打印回退的点的坐标，观察深搜到底后，回退的情况
+//例如到达最后的15这个位置后，会一直退到起点
+//即打印出14-11-10-9-8-7-6-5-4-3-2-1。这也是递归程序返回的过程
+        }
+    }
+}
+
+int main(){
+    int x, y, dx, dy;
+    while (cin &gt;&gt; Wx &gt;&gt; Hy) {   	          //Wx行，Hy列
+        if (Wx==0 &amp;&amp; Hy==0)   			 //结束
+            break;
+        for (y = 0; y &lt; Hy; y++) {         //有Hy列
+            for (x = 0; x &lt; Wx; x++) { 	 //一次读入一行
+                cin &gt;&gt; room[x][y];
+                if(room[x][y] == '@') {     //读入起点
+                    dx = x;
+                    dy = y;
+                }
+            }
+        }
+        num = 0;
+        DFS(dx, dy);
+        cout &lt;&lt; num &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<h2 id="六-dfs回溯与剪枝">六、DFS：回溯与剪枝</h2>
+<p>递归列举出所有的路径，可能会因为数量太大而超时。<br>
+很多子结点是不符合条件的，可以在递归的时候，“看到不对头就撤退”，中途停止扩展并返回。<br>
+这就是回溯，回溯中用于减少子结点扩展的函数是剪枝函数。</p>
+<h3 id="1回溯的经典问题八皇后">1.回溯的经典问题：八皇后</h3>
+<p>•	在棋盘上放置8个皇后，使它们不同行、不同列、不同对角线。问有多少种合法的情况。<br>
+•	N皇后问题是八皇后问题的扩展。<br>
+<img src="https://s3.bmp.ovh/imgs/2021/09/a71c4c902171fcd6.png" alt="" loading="lazy"><br>
+N皇后是什么难度的问题？<br>
+<img src="https://eric-tom.github.io/post-images/1630677085625.png" alt="" loading="lazy"></p>
+<h3 id="2代码-2">2.代码</h3>
+<pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int n, tot = 0;
+int col[12] = {0};
+bool check(int c, int r) {              //检查是否和已经放好的皇后冲突
+    for(int i = 0; i &lt; r; i++)
+        if(col[i] == c || (abs(col[i]-c) == abs(i -r))) //取绝对值
+            return false;
+    return true;
+}
+void  DFS(int r) {                   //一行一行地放皇后，这一次是第r行
+    if(r == n) {             //所有皇后都放好了，递归返回
+       tot++;                  //统计合法的棋局个数
+       return;
+    }
+    for(int c = 0; c &lt; n; c++)      //在每一列放皇后
+        if(check(c, r)){              //检查是否合法
+            col[r] = c;                //在第r行的c列放皇后
+            DFS(r+1);                   //继续放下一行皇后
+        }
+}
+int main() {
+    int ans[12]={0};
+    for(n = 0; n &lt;= 10; n++){      //算出所有n皇后的答案。先打表不然会超时
+        memset(col,0,sizeof(col)); //清空，准备计算下一个N皇后问题
+        tot = 0;
+        DFS(0);
+        ans[n] = tot;                //打表
+    }
+    while(cin &gt;&gt; n) {
+        if(n==0)
+           return 0;
+        cout &lt;&lt; ans[n] &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<h2 id="七-迭代加深搜索iddfs未探究">七、迭代加深搜索IDDFS（未探究）</h2>
+<h3 id="1介绍-5">1.介绍</h3>
+<p>•	有些搜索树很特别：不仅很深，而且很宽；<br>
+•	深度可能到无穷，宽度也可能极广。<br>
+•	如果直接用DFS，会陷入递归无法返回；<br>
+•	如果直接用BFS，队列空间会爆炸。</p>
+<h3 id="2例题埃及分数">2.例题：埃及分数</h3>
+<p>http://codevs.cn/problem/1288/<br>
+•	在古埃及，人们使用单位分数的和（形如1/a，a是自然数）表示一切有理数。如：2/3=1/2+1/6，但不允许2/3=1/3+1/3，因为加数中有相同的。对于一个分数a/b，表示方法有很多种，但是哪种最好呢？首先，加数少的比加数多的好，其次，加数个数相同的，最小的分数越大越好。如：<br>
+19/45=1/3 + 1/12 + 1/180，<br>
+19/45=1/3 + 1/15 + 1/45<br>
+19/45=1/3 + 1/18 + 1/30,<br>
+19/45=1/4 + 1/6 + 1/180<br>
+19/45=1/5 + 1/6 + 1/18<br>
+•	最后一种最好，因为1/18比1/180、1/45、1/30、1/180都大。<br>
+•	给出a, b (0 &lt; a &lt; b &lt; 1000)，编程计算最好的表达方式。<br>
+解题思路：<br>
+（1）DFS到第1层，只包括一个分数，如果满足要求就退出；<br>
+（2）DFS前2层，是2个分数的和，例如1/2 + 1/3、1/2 + 1/4、1/2 + 1/5、…、1/3 + 1/4、…等等，找到合适的答案就退出；<br>
+（3）DFS前3层…</p>
+<h2 id="八-ida">八、IDA*</h2>
+<h3 id="1介绍-6">1.介绍</h3>
+<p>•	IDA*：A*算法思想在IDDFS中的应用。<br>
+•	IDDFS仍然是一种“盲目”的搜索方法，只是把搜索范围约束到了可行的空间内。如果在进行IDDFS的时候，能预测出当前DFS的状态，不再继续深入下去，那么就可以直接返回，不再继续，从而提高了效率。<br>
+•	这个预测就是在IDDFS中增加一个估价函数。在某个状态，经过函数计算，发现后续搜索无解，就返回。简单地说，就是IDDFS的过程中，利用估价函数进行剪枝操作。</p>
+<h3 id="2例题poj3134">2.例题：poj3134</h3>
+<p>•	给定数x和n，求xn，只能用乘法和除法，算过的结果可以被利用。问最少算多少次就够了。n&lt;=1000。<br>
+•	分析：每一步搜索，用前一步得出的值和之前产生的所有值进行加、减运算得到新的值，判断这个值是否等于n。<br>
+•	麻烦在于，每一步搜索，新值的数量增长极快。如果直接用DFS，深度可能有1000，可能会溢出；如果用BFS，也可能超出队列范围。<br>
+•	这一题用IDDFS非常合适，再用估价函数进行剪枝，可以高效地完成计算。<br>
+•	（1）IDDFS：指定递归深度，每一次做DFS时不超过这个深度；<br>
+•	（2）估价函数：如果当前的值用最快的方式（连续乘2，倍增）都不能到达n，停止用这个值继续DFS。<br>
+•	算法分析：<br>
+<a href="https://imgtu.com/i/hcmReS"><img src="https://z3.ax1x.com/2021/09/03/hcmReS.png" alt="hcmReS.png" loading="lazy"></a><br>
+•	思路分析：这道题说是乘除法，但是因为底数给的是x，所以我们需要算的只有指数部分，所以就相当于只能用加减法。问题就变成了：从1到n，只能用加减法，经过多少次运算可以得到。<br>
+若使用dfs，就不知道要搜索多少层。而若使用bfs，因为每一步都要使用前一步的数据，所以数据增加的很快，队列可能会爆掉。因此，使用加深迭代搜索（限制深度地进行搜索）是比较合适的。<br>
+另外，这里我们可以用一个估值函数进行剪枝，以提高效率。这里的估值函数是：假设从现在到现在制定的最大深度位置，每步都以最快的速度增长（每次都是*2就是增长最快）的之后仍然小于n，则这个情况可以剪枝掉。<br>
+•	代码：</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+int val[1010];                           //存一个搜索路径上每一步的计算结果
+int pos, n;
+bool ida(int now, int depth){
+    if(now &gt; depth)  return false;     //IDDFS：大于当前设定的DFS深度，退出
+    if(val[pos] &lt;&lt; (depth - now) &lt; n)
+return false;                //估价函数：用最快的倍增，都不能到达n，退出
+    if(val[pos] == n)  return true;    //当前结果等于n，搜索结束
+    pos ++ ;
+    for(int i = 0 ; i &lt; pos ; i ++) {
+        val[pos] = val[pos-1] + val[i]; //上一个数与前面所有的数相加
+        if(ida(now + 1, depth))   return true;
+        val[pos] = abs(val[pos-1] - val[i]);//上一个数与前面所有的数相减
+        if(ida(now + 1, depth))   return true;
+    }
+    pos -- ;
+    return false;
+}
+int main(){
+    int t;
+    while(cin&gt;&gt;n &amp;&amp; n){
+        int depth;
+        for(depth = 0 ; ; depth ++){ //每次只DFS到深度depth
+            val[pos = 0] = 1;          //初始值是1
+            if(ida(0, depth)) break; //每次都从0层开始DFS到第depth层
+        }
+        cout &lt;&lt; depth &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<h1 id="第四节-高级数据结构">第四节 高级数据结构</h1>
+<p>##一、并查集<br>
+•	并查集（Disjoint Set）：一种非常精巧而实用的数据结构。<br>
+•	用于处理不相交集合的合并问题。<br>
+•	经典应用：<br>
+连通子图<br>
+最小生成树Kruskal算法<br>
+最近公共祖先<br>
+例题<br>
+例：hdu 1213 How Many Tables<br>
+•	有n个人一起吃饭，有些人互相认识。认识的人想坐在一起，而不想跟陌生人坐。例如A认识B，B认识C，那么A、B、C会坐在一张桌子上。<br>
+•	给出认识的人，问需要多少张桌子。<br>
+并查集的操作<br>
+•	初始化<br>
+•	合并<br>
+•	查找</p>
+<pre><code>•	void init_set(){                       //初始化       
+•	   for(int i = 1; i &lt;= maxn; i++)
+•	        s[i] = i;
+•	}
+•	void union_set(int x, int y){    //合并
+•	    x = find_set(x);
+•	    y = find_set(y);
+•	    if(x != y) s[x] = s[y];
+•	}
+•	int find_set(int x){                   //查找   （递归）
+•	    return x==s[x]? x:find_set(s[x]);
+•	}
+</code></pre>
+<p>有多少个集（帮派）？<br>
+•	如果s[i] = i，这是一个根结点，是它所在的集的代表（帮主）；<br>
+•	统计根结点的数量，就是集的数量。<br>
+复杂度<br>
+•	查找find_set()、合并union_set()的搜索深度是树的长度，复杂度都是O(n)。<br>
+•	性能差。<br>
+•	能优化吗？<br>
+目标：优化之后，复杂度 &lt; O(logn)。<br>
+合并的优化<br>
+•	合并元素x和y时，先搜到它们的根结点；<br>
+•	合并这两个根结点：把一个根结点的集改成另一个根结点。<br>
+•	这两个根结点的高度不同，把高度较小的集合并到较大的集上，能减少树的高度。<br>
+查询的优化：路径压缩<br>
+•	查询程序find_set()：沿着搜索路径找到根结点，这条路径可能很长。<br>
+•	优化：沿路径返回时，顺便把i所属的集改成根结点。下次再搜，复杂度是O(1)。<br>
+路径压缩：非递归实现</p>
+<pre><code>如果数据规模太大，用递归担心爆栈，可以这样写：
+int find_set(int x){
+    int r = x;
+    while ( s[r] != r ) r=s[r]; //找到根结点
+    int i = x, j;
+    while(i != r){   
+         j = s[i]; //用临时变量j记录
+         s[i]= r ; //把路径上元素的集改为根结点
+         i = j;
+    }
+    return r;
+}
+
+</code></pre>
+<pre><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int maxn = 1050;
+int s[maxn];
+int height[maxn];
+void init_set(){
+   for(int i = 1; i &lt;= maxn; i++){
+        s[i] = i;
+        height[i]=0;                     //树的高度
+   }
+}
+
+int find_set(int x){
+    if(x != s[x]) s[x] = find_set(s[x]);   //路径压缩
+    return s[x];
+}
+void union_set(int x, int y){         //优化合并操作
+    x = find_set(x);
+    y = find_set(y);
+    if (height[x] == height[y]) {
+        height[x] = height[x] + 1;      //合并，树的高度加一
+        s[y] = x;
+    }
+    else{                            //把矮树并到高树上，高的树的高度不变
+        if (height[x] &lt; height[y])  s[x] = y;
+        else   s[y] = x;
+    }
+}
+
+int main (){
+    int t, n, m, x, y;
+    cin &gt;&gt; t;
+    while(t--){
+        cin &gt;&gt; n &gt;&gt; m;
+        init_set();
+        for(int i = 1; i &lt;= m; i++){
+            cin &gt;&gt; x &gt;&gt; y;
+            union_set(x, y);
+        }
+        int ans = 0;
+        for(int i = 1; i &lt;= n; i++)   //统计有多少个集
+            if(s[i] == i)
+                ans++;
+        cout &lt;&lt; ans &lt;&lt;endl;
+    }
+    return 0;
+}
+</code></pre>
+<h2 id="二-二叉树">二、二叉树</h2>
+<h2 id="三-线段树">三、线段树</h2>
+<h2 id="四-树状数组">四、树状数组</h2>
 <h1 id="第十节-其他知识">第十节 其他知识</h1>
 <h2 id="一string-char-int-相互转换">一.string char int 相互转换</h2>
 <pre><code>1.string--&gt;const char*--&gt;int
