@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eric-tom.github.io</id>
     <title>Welcome to Eric&apos;s blog!</title>
-    <updated>2021-09-03T08:48:03.681Z</updated>
+    <updated>2021-09-03T09:01:22.632Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eric-tom.github.io"/>
     <link rel="self" href="https://eric-tom.github.io/atom.xml"/>
@@ -152,15 +152,17 @@ cout &lt;&lt;( double)( end - start) / CLOCKS_PER_SEC&lt;&lt;endl;
 <ul>
 <li>优点：<br>
 1、因为是纯文本，所以只要支持Markdown的地方都能获得一样的编辑效果，可以让作者摆脱排版的困扰，专心写作。<br>
-2、操作简单。比如:WYSIWYG编辑时标记个标题，先选中内容，再点击导航栏的标题按钮，选择几级标题。要三个步骤。而Markdown只需要在标题内容前加#即可</li>
+2、操作简单。</li>
 <li>缺点：<br>
 1、需要记一些语法（当然，是很简单。五分钟学会）。<br>
 2、有些平台不支持Markdown编辑模式。</li>
 <li>以下仅展示部分功能，例如 [TOC] 自动生成目录无法显示，更好的体验去Markdown编辑器去写，资料摘取网上，方便自己学习。</li>
 </ul>
 <h1 id="一-标题">一、标题</h1>
-<p>一个#是一级标题，二个#是二级标题，以此类推。最大支持六级标题。（❗️ #后跟个空格再写文字）<br>
-示例：</p>
+<ul>
+<li>一个#是一级标题，二个#是二级标题，以此类推。最大支持六级标题。（❗️ #后跟个空格再写文字）</li>
+<li>例子：</li>
+</ul>
 <h1 id="一级标题">一级标题</h1>
 <h2 id="二级标题">二级标题</h2>
 <h3 id="三级标题">三级标题</h3>
@@ -184,8 +186,10 @@ cout &lt;&lt;( double)( end - start) / CLOCKS_PER_SEC&lt;&lt;endl;
 <s>这是加删除线的文字</s></li>
 </ul>
 <h1 id="三-引用">三、引用</h1>
-<p>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt;甚至n个<br>
-例子：</p>
+<ul>
+<li>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt;甚至n个</li>
+<li>例子：</li>
+</ul>
 <blockquote>
 <p>这是引用的内容</p>
 <blockquote>
@@ -198,7 +202,7 @@ cout &lt;&lt;( double)( end - start) / CLOCKS_PER_SEC&lt;&lt;endl;
 <h1 id="四-分割线">四、分割线</h1>
 <ul>
 <li>三个或者三个以上的-或者* 都可以。</li>
-<li>示例：</li>
+<li>例子：</li>
 </ul>
 <hr>
 <hr>
@@ -206,27 +210,31 @@ cout &lt;&lt;( double)( end - start) / CLOCKS_PER_SEC&lt;&lt;endl;
 <hr>
 <h1 id="五-图片">五、图片</h1>
 <h2 id="网络可以将上传到图床-七牛云等">网络（可以将上传到图床、七牛云等）</h2>
-<h3 id="语法">语法：</h3>
-<p>!+[图片alt](图片地址 ''图片title'')<br>
+<ul>
+<li>语法：<br>
+!+[图片alt](图片地址 ''图片title'')<br>
 图片alt就是显示在图片下面的文字，相当于对图片内容的解释。<br>
-图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</p>
-<h3 id="例子">例子：</h3>
-<figure data-type="image" tabindex="1"><img src="https://ftp.bmp.ovh/imgs/2021/04/122617f785cad19d.png" alt="外卖图标" title="外卖图标" loading="lazy"></figure>
+图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</li>
+<li>例子：<br>
+<img src="https://ftp.bmp.ovh/imgs/2021/04/122617f785cad19d.png" alt="外卖图标" title="外卖图标" loading="lazy"></li>
+</ul>
 <h2 id="本地">本地</h2>
 <p>直接导入。</p>
 <h1 id="六-超链接">六、超链接</h1>
-<h2 id="语法-2">语法：</h2>
-<p><a href="%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9C%B0%E5%9D%80" title="超链接title">超链接名</a><br>
-title可加可不加</p>
-<h2 id="例子-2">例子：</h2>
-<p><a href="https://baidu.com">百度</a><br>
-<a href="https://mail.qq.com/" title="学习学习">He: 1101576016@qq.com</a></p>
+<ul>
+<li>语法：<br>
+<a href="%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9C%B0%E5%9D%80" title="超链接title">超链接名</a><br>
+title可加可不加</li>
+<li>例子：<br>
+<a href="https://baidu.com">百度</a><br>
+<a href="https://mail.qq.com/" title="学习学习">He: 1101576016@qq.com</a></li>
+</ul>
 <h1 id="七-列表️-符号后跟个空格再写文字">七、列表（❗️ 符号后跟个空格再写文字）</h1>
 <h2 id="无序列表">无序列表</h2>
-<h3 id="语法-3">语法：</h3>
-<p>用 - + * 其中一种</p>
-<h3 id="例子-3">例子：</h3>
 <ul>
+<li>语法：<br>
+用 - + * 其中一种</li>
+<li>例子：</li>
 <li>列表内容</li>
 </ul>
 <ul>
@@ -236,15 +244,17 @@ title可加可不加</p>
 <li>列表内容</li>
 </ul>
 <h2 id="有序列表">有序列表</h2>
-<h3 id="语法-4">语法：</h3>
-<p>数字加点</p>
-<h3 id="例子-4">例子：</h3>
+<ul>
+<li>语法：<br>
+数字加点</li>
+<li>例子：</li>
+</ul>
 <ol>
 <li>列表内容</li>
 <li>列表内容</li>
 <li>列表内容</li>
 </ol>
-<h1 id="列表嵌套">列表嵌套</h1>
+<h2 id="列表嵌套">列表嵌套</h2>
 <p>上一级和下一级之间敲三个空格即可</p>
 <ul>
 <li>一级无序列表内容
@@ -275,7 +285,7 @@ title可加可不加</p>
 </li>
 </ol>
 <h1 id="八-表格">八、表格</h1>
-<h2 id="语法-5">语法：</h2>
+<h2 id="语法">语法：</h2>
 <p>Markdown 制作表格使用 | 来分隔不同的单元格，使用 - 来分隔表头和其他行。</p>
 <table>
 <thead>
@@ -300,7 +310,7 @@ title可加可不加</p>
 -: 设置内容和标题栏居右对齐。<br>
 :- 设置内容和标题栏居左对齐。<br>
 :-: 设置内容和标题栏居中对齐。</p>
-<h2 id="例子-5">例子：</h2>
+<h2 id="例子">例子：</h2>
 <table>
 <thead>
 <tr>
@@ -323,19 +333,23 @@ title可加可不加</p>
 </tbody>
 </table>
 <h1 id="九-代码">九、代码</h1>
-<h2 id="语法-6">语法：</h2>
 <ul>
+<li>
+<p>语法：</p>
+</li>
 <li>
 <p>单行代码：代码之间分别用一个反引号包起来</p>
 </li>
 <li>
 <p>代码块：用 ``` 包裹一段代码，并指定一种语言（也可以不指定）</p>
 </li>
+<li>
+<p>示例：</p>
+<ul>
+<li>单行代码</li>
+<li><code>printf()</code> 函数</li>
+<li>代码块</li>
 </ul>
-<h2 id="示例">示例：</h2>
-<h3 id="单行代码">单行代码</h3>
-<p><code>printf()</code> 函数</p>
-<h3 id="代码块">代码块</h3>
 <ol>
 <li></li>
 </ol>
@@ -355,6 +369,8 @@ int main()
     return 0;
 }
 </code></pre>
+</li>
+</ul>
 <h1 id="十-标准流程图">十、标准流程图</h1>
 <pre><code class="language-flow">st=&gt;start: 开始框
 op=&gt;operation: 处理框
