@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eric-tom.github.io</id>
     <title>Welcome to Eric&apos;s blog!</title>
-    <updated>2021-09-03T08:22:00.731Z</updated>
+    <updated>2021-09-03T08:23:10.140Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eric-tom.github.io"/>
     <link rel="self" href="https://eric-tom.github.io/atom.xml"/>
@@ -390,7 +390,7 @@ Note left of 对象A: 对象A的描述(提示)
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[数据库相关知识]]></title>
+        <title type="html"><![CDATA[数据库重要知识]]></title>
         <id>https://eric-tom.github.io/post/shu-ju-ku-xiang-guan-zhi-shi/</id>
         <link href="https://eric-tom.github.io/post/shu-ju-ku-xiang-guan-zhi-shi/">
         </link>
@@ -411,7 +411,7 @@ select * from a inner join b on a.id = b.id。即就是内连接。<br>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[一些笔记]]></title>
+        <title type="html"><![CDATA[一些Springboot笔记]]></title>
         <id>https://eric-tom.github.io/post/yi-xie-bi-ji/</id>
         <link href="https://eric-tom.github.io/post/yi-xie-bi-ji/">
         </link>
@@ -458,7 +458,7 @@ apple.setColor(&quot;red&quot;).setFlag(true).setHeight(22.56);//链式</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Gridea 一个简单、开源、强大的静态博客写作客户端]]></title>
+        <title type="html"><![CDATA[Gridea 一个简单、开源、强大的静态博客写作客户端!]]></title>
         <id>https://eric-tom.github.io/post/gridea-xie-bo-ke/</id>
         <link href="https://eric-tom.github.io/post/gridea-xie-bo-ke/">
         </link>
@@ -495,7 +495,7 @@ apple.setColor(&quot;red&quot;).setFlag(true).setHeight(22.56);//链式</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <title type="html"><![CDATA[Hello Gridea!]]></title>
         <id>https://eric-tom.github.io/post/hello-gridea/</id>
         <link href="https://eric-tom.github.io/post/hello-gridea/">
         </link>
