@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Markdown基本语法 | Welcome to Eric&#39;s blog!</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://eric-tom.github.io/favicon.ico?v=1630677499282">
+<link rel="stylesheet" href="https://eric-tom.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="Markdown是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。
+
+
+优点：
+1、因为是纯文本，所以只要支持Markdown的地方都能获得一样的编辑效果，可以让作者摆脱排版的困扰，专心写作。
+2、操作简单..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://eric-tom.github.io">
+        <img src="https://eric-tom.github.io/images/avatar.png?v=1630677499282" class="site-logo">
+        <h1 class="site-title">Welcome to Eric&#39;s blog!</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      醉翁之意不在酒
+    </div>
+    <div class="site-footer">
+      <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=t4aGh4aCgIGHhoH3xsaZ1Nja" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_21.png"/></a> | <a class="rss" href="https://eric-tom.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Markdown基本语法</h2>
+            <div class="post-date">2021-09-03 13-09</div>
+            
+              <div class="feature-container" style="background-image: url('https://eric-tom.github.io/post-images/shu-ju-jie-gou-yu-suan-fa-c.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>Markdown是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。</p>
+<!-- more -->
+<ul>
+<li>优点：<br>
+1、因为是纯文本，所以只要支持Markdown的地方都能获得一样的编辑效果，可以让作者摆脱排版的困扰，专心写作。<br>
+2、操作简单。</li>
+<li>缺点：<br>
+1、需要记一些语法（当然，是很简单。五分钟学会）。<br>
+2、有些平台不支持Markdown编辑模式。</li>
+<li>以下仅展示部分功能，例如 [TOC] 自动生成目录无法显示，更好的体验去Markdown编辑器去写，资料摘取网上，方便自己学习。</li>
+</ul>
+<h1 id="一-标题">一、标题</h1>
+<ul>
+<li>一个#是一级标题，二个#是二级标题，以此类推。最大支持六级标题。（❗️ #后跟个空格再写文字）</li>
+<li>例子：</li>
+</ul>
+<h1 id="一级标题">一级标题</h1>
+<h2 id="二级标题">二级标题</h2>
+<h3 id="三级标题">三级标题</h3>
+<h4 id="四级标题">四级标题</h4>
+<h5 id="五级标题">五级标题</h5>
+<h6 id="六级标题">六级标题</h6>
+<h1 id="二-字体">二、字体</h1>
+<ul>
+<li>加粗<br>
+要加粗的文字左右分别用两个*号包起来</li>
+<li>斜体<br>
+要倾斜的文字左右分别用一个*号包起来</li>
+<li>斜体加粗<br>
+要倾斜和加粗的文字左右分别用三个*号包起来</li>
+<li>删除线<br>
+要加删除线的文字左右分别用两个~~号包起来</li>
+<li>例子：<br>
+<strong>这是加粗的文字</strong><br>
+<em>这是倾斜的文字</em>`<br>
+<em><strong>这是斜体加粗的文字</strong></em><br>
+<s>这是加删除线的文字</s></li>
+</ul>
+<h1 id="三-引用">三、引用</h1>
+<ul>
+<li>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt;甚至n个</li>
+<li>例子：</li>
+</ul>
+<blockquote>
+<p>这是引用的内容</p>
+<blockquote>
+<p>这是引用的内容</p>
+<blockquote>
+<p>这是引用的内容</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h1 id="四-分割线">四、分割线</h1>
+<ul>
+<li>三个或者三个以上的-或者* 都可以。</li>
+<li>例子：</li>
+</ul>
+<hr>
+<hr>
+<hr>
+<hr>
+<h1 id="五-图片">五、图片</h1>
+<h2 id="网络可以将上传到图床-七牛云等">网络（可以将上传到图床、七牛云等）</h2>
+<ul>
+<li>语法：<br>
+!+[图片alt](图片地址 ''图片title'')<br>
+图片alt就是显示在图片下面的文字，相当于对图片内容的解释。<br>
+图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</li>
+<li>例子：<br>
+<img src="https://ftp.bmp.ovh/imgs/2021/04/122617f785cad19d.png" alt="外卖图标" title="外卖图标" loading="lazy"></li>
+</ul>
+<h2 id="本地">本地</h2>
+<p>直接导入。</p>
+<h1 id="六-超链接">六、超链接</h1>
+<ul>
+<li>语法：<br>
+<a href="%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9C%B0%E5%9D%80" title="超链接title">超链接名</a><br>
+title可加可不加</li>
+<li>例子：<br>
+<a href="https://baidu.com">百度</a><br>
+<a href="https://mail.qq.com/" title="学习学习">He: 1101576016@qq.com</a></li>
+</ul>
+<h1 id="七-列表️-符号后跟个空格再写文字">七、列表（❗️ 符号后跟个空格再写文字）</h1>
+<h2 id="无序列表">无序列表</h2>
+<ul>
+<li>语法：<br>
+用 - + * 其中一种</li>
+<li>例子：</li>
+<li>列表内容</li>
+</ul>
+<ul>
+<li>列表内容</li>
+</ul>
+<ul>
+<li>列表内容</li>
+</ul>
+<h2 id="有序列表">有序列表</h2>
+<ul>
+<li>语法：<br>
+数字加点</li>
+<li>例子：</li>
+</ul>
+<ol>
+<li>列表内容</li>
+<li>列表内容</li>
+<li>列表内容</li>
+</ol>
+<h2 id="列表嵌套">列表嵌套</h2>
+<p>上一级和下一级之间敲三个空格即可</p>
+<ul>
+<li>一级无序列表内容
+<ul>
+<li>二级无序列表内容</li>
+<li>二级无序列表内容</li>
+</ul>
+</li>
+<li>一级无序列表内容
+<ul>
+<li>二级无序列表内容</li>
+<li>二级无序列表内容</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>一级有序列表内容
+<ol>
+<li>二级有序列表内容</li>
+<li>二级有序列表内容</li>
+</ol>
+</li>
+<li>一级有序列表内容
+<ol>
+<li>二级有序列表内容</li>
+<li>二级有序列表内容</li>
+</ol>
+</li>
+</ol>
+<h1 id="八-表格">八、表格</h1>
+<h2 id="语法">语法：</h2>
+<p>Markdown 制作表格使用 | 来分隔不同的单元格，使用 - 来分隔表头和其他行。</p>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+</tbody>
+</table>
+<p>第二行为内容格式。<br>
+文字默认居左<br>
+-: 设置内容和标题栏居右对齐。<br>
+:- 设置内容和标题栏居左对齐。<br>
+:-: 设置内容和标题栏居中对齐。</p>
+<h2 id="例子">例子：</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">左对齐</th>
+<th style="text-align:right">右对齐</th>
+<th style="text-align:center">居中对齐</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">单元格</td>
+<td style="text-align:right">单元格</td>
+<td style="text-align:center">单元格</td>
+</tr>
+<tr>
+<td style="text-align:left">单元格</td>
+<td style="text-align:right">单元格</td>
+<td style="text-align:center">单元格</td>
+</tr>
+</tbody>
+</table>
+<h1 id="九-代码">九、代码</h1>
+<ul>
+<li>
+<p>语法：</p>
+</li>
+<li>
+<p>单行代码：代码之间分别用一个反引号包起来</p>
+</li>
+<li>
+<p>代码块：用 ``` 包裹一段代码，并指定一种语言（也可以不指定）</p>
+</li>
+<li>
+<p>示例：</p>
+<ul>
+<li>单行代码</li>
+<li><code>printf()</code> 函数</li>
+<li>代码块</li>
+</ul>
+<ol>
+<li></li>
+</ol>
+<pre><code class="language-javascript">$(document).ready(function () {
+    alert('RUNOOB');
+});
+</code></pre>
+<ol start="2">
+<li></li>
+</ol>
+<pre><code>//C++示例
+include&lt;iostream&gt;
+using namespace std;
+int main()
+{
+    cout&lt;&lt;&quot;Hello World!&quot;&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+</li>
+</ul>
+<h1 id="十-标准流程图">十、标准流程图</h1>
+<pre><code class="language-flow">st=&gt;start: 开始框
+op=&gt;operation: 处理框
+cond=&gt;condition: 判断框(是或否?)
+sub1=&gt;subroutine: 子流程
+io=&gt;inputoutput: 输入输出框
+e=&gt;end: 结束框
+st-&gt;op-&gt;cond
+cond(yes)-&gt;io-&gt;e
+cond(no)-&gt;sub1(right)-&gt;op
+</code></pre>
+<h1 id="十一-uml时序图️-真实用时请去掉头尾行">十一、UML时序图（❗️ 真实用时请去掉头尾行）</h1>
+<pre><code class="language-sequence">对象A-&gt;对象B: 对象B你好吗?（请求）
+Note right of 对象B: 对象B的描述
+Note left of 对象A: 对象A的描述(提示)
+对象B--&gt;对象A: 我很好(响应)
+对象A-&gt;对象B: 你真的好吗？
+</code></pre>
+<h1 id="十二-甘特图样例️-真实用时请去掉头尾行">十二、甘特图样例（❗️ 真实用时请去掉头尾行）</h1>
+<pre><code class="language-mermaid">%% 语法示例
+        gantt
+        dateFormat  YYYY-MM-DD
+        title 软件开发甘特图
+        section 设计
+        需求                      :done,    des1, 2014-01-06,2014-01-08
+        原型                      :active,  des2, 2014-01-09, 3d
+        UI设计                     :         des3, after des2, 5d
+    未来任务                     :         des4, after des3, 5d
+        section 开发
+        学习准备理解需求                      :crit, done, 2014-01-06,24h
+        设计框架                             :crit, done, after des2, 2d
+        开发                                 :crit, active, 3d
+        未来任务                              :crit, 5d
+        耍                                   :2d
+        section 测试
+        功能测试                              :active, a1, after des3, 3d
+        压力测试                               :after a1  , 20h
+        测试报告                               : 48h
+</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://eric-tom.github.io/post/shu-ju-ku-xiang-guan-zhi-shi/">
+                  <h3 class="post-title">
+                    数据库重要知识
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

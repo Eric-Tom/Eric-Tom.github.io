@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Gridea  | Welcome to Eric&#39;s blog!</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://eric-tom.github.io/favicon.ico?v=1630677499282">
+<link rel="stylesheet" href="https://eric-tom.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="一个简单、开源、强大的静态博客写作客户端!
+
+一、介绍
+Gridea（旧称 Hve Notes）是一个静态博客写作客户端 (A static blog writing client) ，你可以用它来记录你的生活、心情、知识、笔记、创意等。配..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://eric-tom.github.io">
+        <img src="https://eric-tom.github.io/images/avatar.png?v=1630677499282" class="site-logo">
+        <h1 class="site-title">Welcome to Eric&#39;s blog!</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      醉翁之意不在酒
+    </div>
+    <div class="site-footer">
+      <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=t4aGh4aCgIGHhoH3xsaZ1Nja" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_21.png"/></a> | <a class="rss" href="https://eric-tom.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Gridea </h2>
+            <div class="post-date">2021-04-29 19-04</div>
+            
+              <div class="feature-container" style="background-image: url('https://eric-tom.github.io/post-images/gridea-xie-bo-ke.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>一个简单、开源、强大的静态博客写作客户端!</p>
+<!-- more -->
+<h1 id="一-介绍">一、介绍</h1>
+<p>Gridea（旧称 Hve Notes）是一个静态博客写作客户端 (A static blog writing client) ，你可以用它来记录你的生活、心情、知识、笔记、创意等。配合 github账号你可以搭建一个静态页面的博客，界面简洁美观，写作推送非常的方便，非常适合小白。<br>
+瞬移：<a href="https://gridea.dev/">Gridea</a></p>
+<h1 id="二-特性">二、特性</h1>
+<h2 id="markdown">Markdown</h2>
+<p>Gridea 提供了 Markdown 编辑体验，你可以专注内容，其他的，交给 Gridea 就够了，无需关心样式与排版。</p>
+<h2 id="封面图">封面图</h2>
+<p>一篇用心的创作，怎么能不搭配一个封面图来锦上添花呢？有！Gridea 支持文章设置封面图，即使是外链图也不成问题。</p>
+<h2 id="自定义标签">自定义标签</h2>
+<p>我们更建议使用标签来为文章进行归类，以你最喜欢的方式：编程、旅行、读书笔记... 我们并没有同时提供标签和类别两层分类关系，画繁为简，不必纠结。</p>
+<h2 id="自定义菜单">自定义菜单</h2>
+<p>我们开发了自定义菜单功能，同时贴心地准备了主页、归档、标签列表等快捷选择。当然，你也可以创建外部菜单到互联网的任何一个地方。</p>
+<h2 id="多主题">多主题</h2>
+<p>我们内置了 4 款主题，还有更多主题曲管网下载，制作精良、耐看，更有趣的是，我们为每款主题设置了丰富的自定义配置字段，稍加配置，遇见大不同</p>
+<h2 id="跨设备">跨设备</h2>
+<p>或许你工作使用 Mac，生活使用 Windows，这都不是事儿，Gridea 全都支持！同时支持更改源文件夹，利用 OneDrive、Dropbox 等同步工具，跨设备管理博客轻而易举！什么，你喜欢用 Linux？再等等，稍后就来</p>
+<h2 id="多平台">多平台</h2>
+<p>大部分情况下你用 Github Pages 来托管博客就够了，但我们同时提供了 Coding Pages 的支持。若你想部署在自己的服务器，可将构建后的网站上传到任意地方。我想，未来会将这一过程变得更加流畅</p>
+<h2 id="多评论">多评论</h2>
+<p>Gridea 内置了 Gitalk 和 Disqus 两个评论系统，你可以任选其一，利用评论结交更多朋友吧！</p>
+<h2 id="多语言">多语言</h2>
+<p>是的，我们贴心地为你内置了中文简体和 English 两种语言。</p>
+<h2 id="多平台部署">多平台部署</h2>
+<p>支持多平台 Mac / Win / Linux ，界面优雅</p>
+<p>当然 Gridea 还很年轻，有很多不足的地方，但请相信，它会不停向前。未来，它一定会成为爱创作的你离不开的伙伴。搭建过程可以去管网或B站寻找。</p>
+<pre><code>                                       零门槛  /  快速  /  精简  /  清爽
+
+                                    😀  /  😃  /  😄  /  😋  /  😜  /  😝
+</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://eric-tom.github.io/post/hello-gridea/">
+                  <h3 class="post-title">
+                    Hello Gridea!
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
